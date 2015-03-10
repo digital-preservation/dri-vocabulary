@@ -1,0 +1,1316 @@
+@prefix : <http://nationalarchives.gov.uk/metadata/tna#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix tna: <http://nationalarchives.gov.uk/metadata/tna#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://nationalarchives.gov.uk/metadata/tna> .
+
+<http://nationalarchives.gov.uk/metadata/tna> rdf:type owl:Ontology ;
+                                              
+                                              rdfs:comment "This onotlogy has been developed by The National Archives of the United Kingdom (TNA) for use in it's digital archival metadata. The terms that exist in here are those that are needed to describe the digital content stored in it's digital repository.  "^^xsd:string .
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#cataloguing
+
+:cataloguing rdf:type owl:ObjectProperty ;
+             
+             rdfs:label "cataloguing"^^xsd:string ;
+             
+             rdfs:comment "A property used to indicate Cataloguing information related to a digital record or digital file."^^xsd:string ;
+             
+             rdfs:range :Cataloguing ;
+             
+             rdfs:domain :Record .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#digitalFile
+
+:digitalFile rdf:type owl:ObjectProperty ;
+             
+             rdfs:label "digital file"^^xsd:string ;
+             
+             rdfs:comment "A propety used to indicate a Digital File resource."^^xsd:string ;
+             
+             rdfs:range :DigitalFile ;
+             
+             rdfs:domain :Record .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#digitalImage
+
+:digitalImage rdf:type owl:ObjectProperty ;
+              
+              rdfs:label "digital image"^^xsd:string ;
+              
+              rdfs:comment "A property used to indicate a digital image resource."^^xsd:string ;
+              
+              rdfs:range :DigitalImage ;
+              
+              rdfs:domain :Record .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#legalStatus
+
+:legalStatus rdf:type owl:ObjectProperty ;
+             
+             rdfs:label "legal status"^^xsd:string ;
+             
+             rdfs:comment "The legal status of the record. For example most records held by TNA would be classified as Public Records."^^xsd:string ;
+             
+             rdfs:domain :Cataloguing ;
+             
+             rdfs:range <http://nationalarchives.gov.uk/metadata/tna/LegalStatus> .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#provenance
+
+:provenance rdf:type owl:ObjectProperty ;
+            
+            rdfs:label "provenance"^^xsd:string ;
+            
+            rdfs:comment "This property can be used to reference a Provenance resource which contains information about the provenance of a digital file."^^xsd:string ;
+            
+            rdfs:range :Provenance ;
+            
+            rdfs:domain :Record .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#substitute
+
+:substitute rdf:type owl:ObjectProperty ;
+            
+            rdfs:label "substitute"^^xsd:string ;
+            
+            rdfs:comment "Where a digital file has been substituted this would be the substitute file. For example a JPEG2000 image may be substituted with a JPEG 1.0 image in order to have the same image in a smaller file."^^xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#transcription
+
+:transcription rdf:type owl:ObjectProperty ;
+               
+               rdfs:label "transcription"^^xsd:string ;
+               
+               rdfs:comment "This property can be used to reference a Transcription resource which contains information transcribed from a digital file."^^xsd:string ;
+               
+               rdfs:domain :Record ;
+               
+               rdfs:range :Transcription .
+
+
+
+###  http://purl.org/dc/terms/coverage
+
+<http://purl.org/dc/terms/coverage> rdf:type owl:ObjectProperty ;
+                                    
+                                    rdfs:label "coverage"^^xsd:string ;
+                                    
+                                    rdfs:comment """The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.
+
+Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN]. Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges."""^^xsd:string ;
+                                    
+                                    rdfs:domain :Cataloguing ;
+                                    
+                                    rdfs:range :CoveringDates .
+
+
+
+###  http://purl.org/dc/terms/creator
+
+<http://purl.org/dc/terms/creator> rdf:type owl:ObjectProperty ;
+                                   
+                                   rdfs:label "creator"^^xsd:string ;
+                                   
+                                   rdfs:comment """An entity primarily responsible for making the resource.
+
+Examples of a Creator include a person, an organization, or a service.
+"""^^xsd:string ;
+                                   
+                                   rdfs:domain :Cataloguing .
+
+
+
+###  http://purl.org/dc/terms/rights
+
+<http://purl.org/dc/terms/rights> rdf:type owl:ObjectProperty ;
+                                  
+                                  rdfs:label "rights"^^xsd:string ;
+                                  
+                                  rdfs:comment """Information about rights held in and over the resource.
+
+Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights."""^^xsd:string ;
+                                  
+                                  rdfs:domain :DigitalFile ,
+                                              :DigitalFolder .
+
+
+
+###  http://schema.org/about
+
+<http://schema.org/about> rdf:type owl:ObjectProperty ;
+                          
+                          rdfs:label "about"^^xsd:string ;
+                          
+                          rdfs:comment "The subject matter of the content."^^xsd:string ;
+                          
+                          rdfs:domain :Transcription ;
+                          
+                          rdfs:range <http://schema.org/Person> .
+
+
+
+###  http://schema.org/address
+
+<http://schema.org/address> rdf:type owl:ObjectProperty ;
+                            
+                            rdfs:label "address"^^xsd:string ;
+                            
+                            rdfs:comment "Physical address of the item."^^xsd:string ;
+                            
+                            rdfs:domain <http://schema.org/Person> ,
+                                        <http://schema.org/Place> ;
+                            
+                            rdfs:range <http://schema.org/PostalAddress> .
+
+
+
+###  http://schema.org/addressCountry
+
+<http://schema.org/addressCountry> rdf:type owl:ObjectProperty ;
+                                   
+                                   rdfs:label "country"^^xsd:string ;
+                                   
+                                   rdfs:comment "The country. For example, USA. You can also provide the two-letter ISO 3166-1 alpha-2 country code."^^xsd:string ;
+                                   
+                                   rdfs:range <http://schema.org/Country> ;
+                                   
+                                   rdfs:domain <http://schema.org/PostalAddress> ;
+                                   
+                                   rdfs:subPropertyOf owl:topObjectProperty .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#batchIdentifier
+
+:batchIdentifier rdf:type owl:DatatypeProperty ;
+                 
+                 rdfs:label "batch identifier"^^xsd:string ;
+                 
+                 rdfs:comment "The identifier of a batch within the context of a collection. A batch would generally equate to a whole disk of records. This identifier is meaningless without the presence of the collection identifier."^^xsd:string ;
+                 
+                 rdfs:domain :Cataloguing ;
+                 
+                 rdfs:subPropertyOf <http://purl.org/dc/terms/identifier> ;
+                 
+                 rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#checksum
+
+:checksum rdf:type owl:DatatypeProperty ;
+          
+          rdfs:label "checksum"^^xsd:string ;
+          
+          rdfs:comment "The checksum value generated by a checksum algorithm when applied to a digital file."^^xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#collectionIdentifier
+
+:collectionIdentifier rdf:type owl:DatatypeProperty ;
+                      
+                      rdfs:label "collection identifier"^^xsd:string ;
+                      
+                      rdfs:comment """The identifier of a collection of records.
+
+A collection represents a distinct and related set of records. At TNA a collection identifier is a string of five characters which can be made up of the digits 0-9 and the letters A-Z, e.g. ADM17 or LEVES."""^^xsd:string ;
+                      
+                      rdfs:domain :Cataloguing ;
+                      
+                      rdfs:subPropertyOf <http://purl.org/dc/terms/identifier> ;
+                      
+                      rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#departmentIdentifier
+
+:departmentIdentifier rdf:type owl:DatatypeProperty ;
+                      
+                      rdfs:label "department identifier"^^xsd:string ;
+                      
+                      rdfs:comment "A department identifier. This is used to uniquely represent a government department or other originating organisation for the record. For example WO is used for War Office, LEV is used for the Leveson Inquiry."^^xsd:string ;
+                      
+                      rdfs:domain :Cataloguing ;
+                      
+                      rdfs:subPropertyOf <http://purl.org/dc/terms/identifier> ;
+                      
+                      rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#divisionIdentifier
+
+:divisionIdentifier rdf:type owl:DatatypeProperty ;
+                    
+                    rdfs:label "division identifier"^^xsd:string ;
+                    
+                    rdfs:comment "A division identifier is used to uniquely identify a division within the context of a department. The term division refers to a division within the TNA Cataloguing hierarchy."^^xsd:string ;
+                    
+                    rdfs:domain :Cataloguing ;
+                    
+                    rdfs:subPropertyOf <http://purl.org/dc/terms/identifier> ;
+                    
+                    rdfs:range xsd:integer .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#endDate
+
+:endDate rdf:type owl:DatatypeProperty ;
+         
+         rdfs:label "end date"^^xsd:string ;
+         
+         rdfs:comment "The end date of a period of time. This may take a plain text form such as Jaunary 1905 or may be in ISO 8601 format.  "^^xsd:string ;
+         
+         rdfs:domain :CoveringDates ;
+         
+         rdfs:subPropertyOf <http://purl.org/dc/terms/date> ;
+         
+         rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#fileIdentifier
+
+:fileIdentifier rdf:type owl:DatatypeProperty ;
+                
+                rdfs:label "file identifier"^^xsd:string ;
+                
+                rdfs:comment "A file identifier is a UUID generated to uniquely identify a digial file within the archive."^^xsd:string ;
+                
+                rdfs:subPropertyOf :uuidV4 .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#filePathAndName
+
+:filePathAndName rdf:type owl:DatatypeProperty ;
+                 
+                 rdfs:label "file path and name"^^xsd:string ;
+                 
+                 rdfs:comment "A sequence of zero or more names denoting a directory path with the last name denoting either a file or directory. The names are separated with a file system seperator, e.g. / and the entire path should be URL encoded."^^xsd:string ;
+                 
+                 rdfs:domain :DigitalFile ;
+                 
+                 rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#heldBy
+
+:heldBy rdf:type owl:DatatypeProperty ;
+        
+        rdfs:label "The name of the organisation holding the record. Normal this would be the The National Archives, Kew  but it is possible that a record may be held by another organisation. This could occur with retained records for example."^^xsd:string ,
+                   "held by"^^xsd:string ;
+        
+        rdfs:domain :Cataloguing ;
+        
+        rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#imageColourSpace
+
+:imageColourSpace rdf:type owl:DatatypeProperty ;
+                  
+                  rdfs:label "image colour space"^^xsd:string ;
+                  
+                  rdfs:comment "The image colour space, e.g. RGB."^^xsd:string ;
+                  
+                  rdfs:domain :DigitalImage ;
+                  
+                  rdfs:range xsd:NCName .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#imageCompression
+
+:imageCompression rdf:type owl:DatatypeProperty ;
+                  
+                  rdfs:label "image compression"^^xsd:string ;
+                  
+                  rdfs:comment "A positive (non-zero) integer. For example 6 would represent a 6-fold compression with the lossy algorithm available in the JPEG2000 specification."^^xsd:string ;
+                  
+                  rdfs:domain :DigitalImage ;
+                  
+                  rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#imageCrop
+
+:imageCrop rdf:type owl:DatatypeProperty ;
+           
+           rdfs:label "image crop"^^xsd:string ;
+           
+           rdfs:comment "The type of cropping applied to an image. Valid values are manual, auto and none."^^xsd:string ;
+           
+           rdfs:domain :Provenance ;
+           
+           rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#imageDeskew
+
+:imageDeskew rdf:type owl:DatatypeProperty ;
+             
+             rdfs:label "image deskew"^^xsd:string ;
+             
+             rdfs:comment "Indicates whether or not the image has been deskewed. Valid values are yes and no."^^xsd:string ;
+             
+             rdfs:domain :Provenance ;
+             
+             rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#imageFormat
+
+:imageFormat rdf:type owl:DatatypeProperty ;
+             
+             rdfs:label "image format"^^xsd:string ;
+             
+             rdfs:comment "The PRONOM Persistent Unique Identifier (PUID) value for the image. For example, a JPEG version 1 file would have a PUID of fmt/42."^^xsd:string ;
+             
+             rdfs:domain :DigitalImage ;
+             
+             rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#imageHeight
+
+:imageHeight rdf:type owl:DatatypeProperty ;
+             
+             rdfs:label "image height"^^xsd:string ;
+             
+             rdfs:comment "The image height in pixels."^^xsd:string ;
+             
+             rdfs:domain :DigitalImage ;
+             
+             rdfs:range xsd:positiveInteger .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#imageOrientation
+
+:imageOrientation rdf:type owl:DatatypeProperty ;
+                  
+                  rdfs:label "image orientation"^^xsd:string ;
+                  
+                  rdfs:comment "The orientation of the digital image. This can be either portrait or landscape."^^xsd:string ;
+                  
+                  rdfs:domain :DigitalImage ;
+                  
+                  rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#imageResolution
+
+:imageResolution rdf:type owl:DatatypeProperty ;
+                 
+                 rdfs:label "image resolution"^^xsd:string ;
+                 
+                 rdfs:comment "The resolution of the image in DPI."^^xsd:string ;
+                 
+                 rdfs:domain :DigitalImage ;
+                 
+                 rdfs:range xsd:positiveInteger .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#imageSplit
+
+:imageSplit rdf:type owl:DatatypeProperty ;
+            
+            rdfs:label "image split"^^xsd:string ;
+            
+            rdfs:comment """Indicates whether the image is split or not. Valid values are yes and no.
+
+Sometimes, very large documents (maps for example) are scanned into multiple images files if they cannot all be scanned into one."""^^xsd:string ;
+            
+            rdfs:domain :Provenance ;
+            
+            rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#imageSplitOrdinal
+
+:imageSplitOrdinal rdf:type owl:DatatypeProperty ;
+                   
+                   rdfs:label "image split ordinal"^^xsd:string ;
+                   
+                   rdfs:comment """An ordinal used to correctly order images when a large paper document has been scanned into multiple images.
+
+Sometimes, very large documents (maps for example) are scanned into multiple images files if they cannot all be scanned into one."""^^xsd:string ;
+                   
+                   rdfs:domain :Provenance ;
+                   
+                   rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#imageSplitOtherUuid
+
+:imageSplitOtherUuid rdf:type owl:DatatypeProperty ;
+                     
+                     rdfs:label "image split other UUID"^^xsd:string ;
+                     
+                     rdfs:comment """The UUID of one or more other digital image files which can be used to complete the image in this digital image file.
+
+Sometimes, very large documents (maps for example) are scanned into multiple images files if they cannot all be scanned into one."""^^xsd:string ;
+                     
+                     rdfs:domain :Provenance ;
+                     
+                     rdfs:subPropertyOf :uuidV4 ;
+                     
+                     rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#imageTonalResolution
+
+:imageTonalResolution rdf:type owl:DatatypeProperty ;
+                      
+                      rdfs:label "image tonal resolution"^^xsd:string ;
+                      
+                      rdfs:comment "The tonal resolution of the digital image in bits."^^xsd:string ;
+                      
+                      rdfs:domain :DigitalImage .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#imageWidth
+
+:imageWidth rdf:type owl:DatatypeProperty ;
+            
+            rdfs:label "image width"^^xsd:string ;
+            
+            rdfs:comment "The image width in pixels."^^xsd:string ;
+            
+            rdfs:domain :DigitalImage ;
+            
+            rdfs:range xsd:positiveInteger .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#itemDescription
+
+:itemDescription rdf:type owl:DatatypeProperty ;
+                 
+                 rdfs:label "item description"^^xsd:string ;
+                 
+                 rdfs:comment "An account of the resource which is represented as an item within the hierarchy of the TNA Catalogue."^^xsd:string ;
+                 
+                 rdfs:domain :Cataloguing ;
+                 
+                 rdfs:subPropertyOf <http://purl.org/dc/terms/description> ;
+                 
+                 rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#itemIdentifier
+
+:itemIdentifier rdf:type owl:DatatypeProperty ;
+                
+                rdfs:label "item identifier"^^xsd:string ;
+                
+                rdfs:comment "An item identifier is used to uniquely identify a division within the context of a piece. The term item refers to an item within the TNA Cataloguing hierarchy."^^xsd:string ;
+                
+                rdfs:domain :Cataloguing ;
+                
+                rdfs:subPropertyOf <http://purl.org/dc/terms/identifier> ;
+                
+                rdfs:range xsd:integer .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#md5Checksum
+
+:md5Checksum rdf:type owl:DatatypeProperty ;
+             
+             rdfs:label "MD5 checksum"^^xsd:string ;
+             
+             rdfs:comment "A checksum hash value generated using the MD5 message-digest algorithm. "^^xsd:string ;
+             
+             rdfs:domain :DigitalFile ;
+             
+             rdfs:subPropertyOf :checksum ;
+             
+             rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#officialNumber
+
+:officialNumber rdf:type owl:DatatypeProperty ;
+                
+                rdfs:label "official number"^^xsd:string ;
+                
+                rdfs:comment "An official number used within an organisation to identify an individual person. Examples of an official number would be a social security number or military service number. "^^xsd:string ;
+                
+                rdfs:domain <http://schema.org/Person> ;
+                
+                rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#ordinal
+
+:ordinal rdf:type owl:DatatypeProperty ;
+         
+         rdfs:label "ordinal"^^xsd:string ;
+         
+         rdfs:comment "An ordinal can be used to sequence a number of items below catalogue level. For example we may have multiple images which all have the same TNA Catalogue reference, such as the pages of a book. An ordinal allows these items to be sequenced correctly. "^^xsd:string ;
+         
+         rdfs:domain :Cataloguing ;
+         
+         rdfs:range xsd:integer .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#parentIdentifier
+
+:parentIdentifier rdf:type owl:DatatypeProperty ;
+                  
+                  rdfs:label "parent identifier"^^xsd:string ;
+                  
+                  rdfs:comment "A parent identifier is the UUID of another record which is the parent of the current record. For example where a digital folder contains a digital file the parent of the digital file would be the digital folder. This provides a very direct means of linking such records. "^^xsd:string ;
+                  
+                  rdfs:domain :Cataloguing ;
+                  
+                  rdfs:subPropertyOf :uuidV4 ;
+                  
+                  rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#pieceDescription
+
+:pieceDescription rdf:type owl:DatatypeProperty ;
+                  
+                  rdfs:label "piece description"^^xsd:string ;
+                  
+                  rdfs:comment "An account of the resource which is represented as an piece within the hierarchy of the TNA Catalogue."^^xsd:string ;
+                  
+                  rdfs:domain :Cataloguing ;
+                  
+                  rdfs:subPropertyOf <http://purl.org/dc/terms/description> ;
+                  
+                  rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#pieceIdentifier
+
+:pieceIdentifier rdf:type owl:DatatypeProperty ;
+                 
+                 rdfs:label "piece identifier"^^xsd:string ;
+                 
+                 rdfs:comment "A piece identifier is used to uniquely identify a division within the context of a series, sub-series or sub-sub-series. The term piece refers to a piece within the TNA Cataloguing hierarchy."^^xsd:string ;
+                 
+                 rdfs:domain :Cataloguing ;
+                 
+                 rdfs:subPropertyOf <http://purl.org/dc/terms/identifier> ;
+                 
+                 rdfs:range xsd:integer .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#scanId
+
+:scanId rdf:type owl:DatatypeProperty ;
+        
+        rdfs:label "scan ID"^^xsd:string ;
+        
+        rdfs:comment "An identifier given the to the scanning operation."^^xsd:string ;
+        
+        rdfs:domain :Provenance ;
+        
+        rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#scanLocation
+
+:scanLocation rdf:type owl:DatatypeProperty ;
+              
+              rdfs:label "scan location"^^xsd:string ;
+              
+              rdfs:comment "The place where the document was scanned."^^xsd:string ;
+              
+              rdfs:domain :Provenance ;
+              
+              rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#scanOperator
+
+:scanOperator rdf:type owl:DatatypeProperty ;
+              
+              rdfs:label "scan operator"^^xsd:string ;
+              
+              rdfs:comment "The name of the person or organization that created the digital scan image."^^xsd:string ;
+              
+              rdfs:domain :Provenance ;
+              
+              rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#seriesIdentifier
+
+:seriesIdentifier rdf:type owl:DatatypeProperty ;
+                  
+                  rdfs:label "series identifier"^^xsd:string ;
+                  
+                  rdfs:comment "A series identifier is used to uniquely identify a series within the context of a department or division. The term series refers to a series within the TNA Cataloguing hierarchy."^^xsd:string ;
+                  
+                  rdfs:domain :Cataloguing ;
+                  
+                  rdfs:subPropertyOf <http://purl.org/dc/terms/identifier> ;
+                  
+                  rdfs:range xsd:integer .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#sha256Checksum
+
+:sha256Checksum rdf:type owl:DatatypeProperty ;
+                
+                rdfs:label "SHA-256 checksum"^^xsd:string ;
+                
+                rdfs:comment "A checksum hash value generated using SHA-256 (Secure Hash Algorithm). "^^xsd:string ;
+                
+                rdfs:domain :DigitalFile ;
+                
+                rdfs:subPropertyOf :checksum ;
+                
+                rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#startDate
+
+:startDate rdf:type owl:DatatypeProperty ;
+           
+           rdfs:label "start date"^^xsd:string ;
+           
+           rdfs:comment "The start date of a period of time. This may take a plain text form such as Jaunary 1905 or may be in ISO 8601 format.  "^^xsd:string ;
+           
+           rdfs:domain :CoveringDates ;
+           
+           rdfs:subPropertyOf <http://purl.org/dc/terms/date> ;
+           
+           rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#subItemIdentifier
+
+:subItemIdentifier rdf:type owl:DatatypeProperty ;
+                   
+                   rdfs:label "sub-item identifier"^^xsd:string ;
+                   
+                   rdfs:comment "A sub-item identifier is used to uniquely identify a sub-item within the context of an item. The term sub-item refers to a sub-item within the TNA Cataloguing hierarchy."^^xsd:string ;
+                   
+                   rdfs:domain :Cataloguing ;
+                   
+                   rdfs:subPropertyOf <http://purl.org/dc/terms/identifier> ;
+                   
+                   rdfs:range xsd:integer .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#subSeriesIdentifier
+
+:subSeriesIdentifier rdf:type owl:DatatypeProperty ;
+                     
+                     rdfs:label "sub-series identifier"^^xsd:string ;
+                     
+                     rdfs:comment "A sub-series identifier is used to uniquely identify a sub-series within the context of a series. The term sub-series refers to a sub-series within the TNA Cataloguing hierarchy."^^xsd:string ;
+                     
+                     rdfs:domain :Cataloguing ;
+                     
+                     rdfs:subPropertyOf <http://purl.org/dc/terms/identifier> ;
+                     
+                     rdfs:range xsd:integer .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#subSubSeriesIdentifier
+
+:subSubSeriesIdentifier rdf:type owl:DatatypeProperty ;
+                        
+                        rdfs:label "sub-sub-series identifier"^^xsd:string ;
+                        
+                        rdfs:comment "A sub-sub-series identifier is used to uniquely identify a sub-sub-series within the context of a sub-series. The term sub-sub-series refers to a sub-sub-series within the TNA Cataloguing hierarchy."^^xsd:string ;
+                        
+                        rdfs:domain :Cataloguing ;
+                        
+                        rdfs:subPropertyOf <http://purl.org/dc/terms/identifier> ;
+                        
+                        rdfs:range xsd:integer .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#uuidV4
+
+:uuidV4 rdf:type owl:DatatypeProperty ;
+        
+        rdfs:label "UUID v4"^^xsd:string ;
+        
+        rdfs:comment "A universally unique identifier (UUID) is an identifier standard used in software construction. Version 4 UUIDs use a scheme relying only on random numbers and have the form xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx where x is any hexadecimal digit and y is one of 8, 9, A, or B."^^xsd:string ;
+        
+        rdfs:subPropertyOf <http://purl.org/dc/terms/identifier> .
+
+
+
+###  http://purl.org/dc/terms/date
+
+<http://purl.org/dc/terms/date> rdf:type owl:DatatypeProperty ;
+                                
+                                rdfs:label "date"^^xsd:string ;
+                                
+                                rdfs:comment """A point or period of time associated with an event in the lifecycle of the resource.
+
+Date may be used to express temporal information at any level of granularity. Recommended best practice is to use an encoding scheme, such as the W3CDTF profile of ISO 8601 [W3CDTF].
+
+"""^^xsd:string .
+
+
+
+###  http://purl.org/dc/terms/description
+
+<http://purl.org/dc/terms/description> rdf:type owl:DatatypeProperty ;
+                                       
+                                       rdfs:label "description"^^xsd:string ;
+                                       
+                                       rdfs:comment """An account of the resource.
+
+Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.
+
+"""^^xsd:string .
+
+
+
+###  http://purl.org/dc/terms/identifier
+
+<http://purl.org/dc/terms/identifier> rdf:type owl:DatatypeProperty ;
+                                      
+                                      rdfs:label "identifier"^^xsd:string ;
+                                      
+                                      rdfs:comment """An unambiguous reference to the resource within a given context.
+
+Recommended best practice is to identify the resource by means of a string conforming to a formal identification system."""^^xsd:string .
+
+
+
+###  http://purl.org/dc/terms/title
+
+<http://purl.org/dc/terms/title> rdf:type owl:DatatypeProperty ;
+                                 
+                                 rdfs:label "title"^^xsd:string ;
+                                 
+                                 rdfs:comment "A name given to the resource."^^xsd:string ;
+                                 
+                                 rdfs:domain :Cataloguing ;
+                                 
+                                 rdfs:range xsd:string .
+
+
+
+###  http://schema.org/addressLocality
+
+<http://schema.org/addressLocality> rdf:type owl:DatatypeProperty ;
+                                    
+                                    rdfs:label "address locality"^^xsd:string ;
+                                    
+                                    rdfs:comment "The locality. For example, Mountain View."^^xsd:string .
+
+
+
+###  http://schema.org/addressRegion
+
+<http://schema.org/addressRegion> rdf:type owl:DatatypeProperty ;
+                                  
+                                  rdfs:label "address region"^^xsd:string ;
+                                  
+                                  rdfs:comment "The region. For example, CA."^^xsd:string ;
+                                  
+                                  rdfs:domain <http://schema.org/PostalAddress> ;
+                                  
+                                  rdfs:range xsd:string .
+
+
+
+###  http://schema.org/birthDate
+
+<http://schema.org/birthDate> rdf:type owl:DatatypeProperty ;
+                              
+                              rdfs:label "birth date"^^xsd:string ;
+                              
+                              rdfs:comment "Date of birth."^^xsd:string .
+
+
+
+###  http://schema.org/familyName
+
+<http://schema.org/familyName> rdf:type owl:DatatypeProperty ;
+                               
+                               rdfs:label "family name"^^xsd:string ;
+                               
+                               rdfs:comment "Family name. In the U.S., the last name of an Person. This can be used along with givenName instead of the name property."^^xsd:string ;
+                               
+                               rdfs:domain <http://schema.org/Person> ;
+                               
+                               rdfs:range xsd:string .
+
+
+
+###  http://schema.org/givenName
+
+<http://schema.org/givenName> rdf:type owl:DatatypeProperty ;
+                              
+                              rdfs:label "given name"^^xsd:string ;
+                              
+                              rdfs:comment "Given name. In the U.S., the first name of a Person. This can be used along with familyName instead of the name property."^^xsd:string ;
+                              
+                              rdfs:domain <http://schema.org/Person> ;
+                              
+                              rdfs:range xsd:string .
+
+
+
+###  http://schema.org/postalCode
+
+<http://schema.org/postalCode> rdf:type owl:DatatypeProperty ;
+                               
+                               rdfs:label "postal code"^^xsd:string ;
+                               
+                               rdfs:comment "The postal code. For example, TW9 4DU."^^xsd:string ;
+                               
+                               rdfs:domain <http://schema.org/PostalAddress> ;
+                               
+                               rdfs:range xsd:string .
+
+
+
+###  http://schema.org/streetAddress
+
+<http://schema.org/streetAddress> rdf:type owl:DatatypeProperty ;
+                                  
+                                  rdfs:label "street address"^^xsd:string ;
+                                  
+                                  rdfs:comment "The street address. For example, 1600 Amphitheatre Pkwy."^^xsd:string ;
+                                  
+                                  rdfs:domain <http://schema.org/PostalAddress> ;
+                                  
+                                  rdfs:range xsd:string .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#BornDigitalRecord
+
+:BornDigitalRecord rdf:type owl:Class ;
+                   
+                   rdfs:label "Born digital record"^^xsd:string ;
+                   
+                   rdfs:subClassOf :Record ;
+                   
+                   rdfs:comment "A record which was digital at point of creation as opposed to a record that was created on paper and then digitised. An example of a born digital record would be a digital photograph taken by a digital camera."^^xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#Cataloguing
+
+:Cataloguing rdf:type owl:Class ;
+             
+             rdfs:label "Cataloguing"^^xsd:string ;
+             
+             rdfs:comment "A container for the cataloguing information related to the record or digital file."^^xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#CoveringDates
+
+:CoveringDates rdf:type owl:Class ;
+               
+               rdfs:label "Covering Dates"^^xsd:string ;
+               
+               rdfs:subClassOf <http://purl.org/dc/terms/LocationPeriodOrJurisdiction> .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#DigitalFile
+
+:DigitalFile rdf:type owl:Class ;
+             
+             rdfs:label "Digital file"^^xsd:string ;
+             
+             rdfs:comment "A resource containing information specific to a digital file which constitutes part or all of a digital record."^^xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#DigitalFolder
+
+:DigitalFolder rdf:type owl:Class ;
+               
+               rdfs:label "Digital folder"^^xsd:string ;
+               
+               rdfs:subClassOf :Record ;
+               
+               rdfs:comment "A digital folder (also known as a directory) is a computer cataloguing structure that can contain files and/or more digital folders. As such it is used as a container for digitised and born digital records."^^xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#DigitalImage
+
+:DigitalImage rdf:type owl:Class ;
+              
+              rdfs:label "Digital image"^^xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#DigitalRecord
+
+:DigitalRecord rdf:type owl:Class ;
+               
+               rdfs:label "Digital record"^^xsd:string ;
+               
+               rdfs:subClassOf :Record ;
+               
+               rdfs:comment "A digital record is the digitised version of a paper record that no longer exists. An example of a digital record is the digital image of a paper document that has been scanned using an image scanner. The original paper record is then discarded and the image becomes the record."^^xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#DigitalSurrogate
+
+:DigitalSurrogate rdf:type owl:Class ;
+                  
+                  rdfs:label "Digital surrogate"^^xsd:string ;
+                  
+                  rdfs:subClassOf :Record ;
+                  
+                  rdfs:comment "A digital surrogate is a digital record that exists in addition to a paper record. An example would be a paper document that is scanned and then both the digital image and paper document are retained."^^xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#Provenance
+
+:Provenance rdf:type owl:Class ;
+            
+            rdfs:label "Provenance"^^xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#Record
+
+:Record rdf:type owl:Class ;
+        
+        rdfs:label "Record"^^xsd:string ;
+        
+        rdfs:comment "A paper or digital document, an image, an audio or video recording or any other item that constitutes the official record."^^xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#Substitute
+
+:Substitute rdf:type owl:Class ;
+            
+            rdfs:label "Substitute"^^xsd:string ;
+            
+            rdfs:subClassOf :DigitalFile ;
+            
+            rdfs:comment "A resource representing a substitue for a digital file. For example a "^^xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#Transcription
+
+:Transcription rdf:type owl:Class ;
+               
+               rdfs:label "Transcription"^^xsd:string ;
+               
+               rdfs:subClassOf <http://schema.org/CommunicateAction> ;
+               
+               rdfs:comment "A resource containing transcription information obtained from a digital file. For example an audio file may contain speech which can be transcribed."^^xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna/LegalStatus
+
+<http://nationalarchives.gov.uk/metadata/tna/LegalStatus> rdf:type owl:Class ;
+                                                          
+                                                          rdfs:label "Legal Status" .
+
+
+
+###  http://purl.org/dc/terms/LocationPeriodOrJurisdiction
+
+<http://purl.org/dc/terms/LocationPeriodOrJurisdiction> rdf:type owl:Class ;
+                                                        
+                                                        rdfs:label "Location, Period or Jurisdiction"^^xsd:string ;
+                                                        
+                                                        rdfs:comment "A location, period of time, or jurisdiction."^^xsd:string .
+
+
+
+###  http://purl.org/dc/terms/RightsStatement
+
+<http://purl.org/dc/terms/RightsStatement> rdf:type owl:Class ;
+                                           
+                                           rdfs:label "Rights Statement"^^xsd:string .
+
+
+
+###  http://schema.org/Action
+
+<http://schema.org/Action> rdf:type owl:Class ;
+                           
+                           rdfs:label "Action"^^xsd:string ;
+                           
+                           rdfs:comment "An action performed by a direct agent and indirect participants upon a direct object. Optionally happens at a location with the help of an inanimate instrument. The execution of the action may produce a result. Specific action sub-type documentation specifies the exact expectation of each argument/role."^^xsd:string .
+
+
+
+###  http://schema.org/AdministrativeArea
+
+<http://schema.org/AdministrativeArea> rdf:type owl:Class ;
+                                       
+                                       rdfs:label "Administrative area"^^xsd:string ;
+                                       
+                                       rdfs:subClassOf <http://schema.org/Place> ;
+                                       
+                                       rdfs:comment "A geographical region under the jurisdiction of a particular government."^^xsd:string .
+
+
+
+###  http://schema.org/CommunicateAction
+
+<http://schema.org/CommunicateAction> rdf:type owl:Class ;
+                                      
+                                      rdfs:label "Communicate Action"^^xsd:string ;
+                                      
+                                      rdfs:subClassOf <http://schema.org/InteractAction> ;
+                                      
+                                      rdfs:comment "The act of conveying information to another person via a communication medium (instrument) such as speech, email, or telephone conversation."^^xsd:string .
+
+
+
+###  http://schema.org/ContactPoint
+
+<http://schema.org/ContactPoint> rdf:type owl:Class ;
+                                 
+                                 rdfs:label "Contact Point"^^xsd:string ;
+                                 
+                                 rdfs:subClassOf <http://schema.org/StructuredValue> ;
+                                 
+                                 rdfs:comment "A contact point—for example, a Customer Complaints department."^^xsd:string .
+
+
+
+###  http://schema.org/Country
+
+<http://schema.org/Country> rdf:type owl:Class ;
+                            
+                            rdfs:label "Country"^^xsd:string ;
+                            
+                            rdfs:subClassOf <http://schema.org/AdministrativeArea> ;
+                            
+                            rdfs:comment "A country."^^xsd:string .
+
+
+
+###  http://schema.org/Intangible
+
+<http://schema.org/Intangible> rdf:type owl:Class ;
+                               
+                               rdfs:label "Intangible"^^xsd:string ;
+                               
+                               rdfs:comment "A utility class that serves as the umbrella for a number of 'intangible' things such as quantities, structured values, etc."^^xsd:string .
+
+
+
+###  http://schema.org/InteractAction
+
+<http://schema.org/InteractAction> rdf:type owl:Class ;
+                                   
+                                   rdfs:label "Interact Action"^^xsd:string ;
+                                   
+                                   rdfs:subClassOf <http://schema.org/Action> ;
+                                   
+                                   rdfs:comment "The act of interacting with another person or organization."^^xsd:string .
+
+
+
+###  http://schema.org/Person
+
+<http://schema.org/Person> rdf:type owl:Class ;
+                           
+                           rdfs:label "Person"^^xsd:string ;
+                           
+                           rdfs:comment "A person (alive, dead, undead, or fictional)."^^xsd:string .
+
+
+
+###  http://schema.org/Place
+
+<http://schema.org/Place> rdf:type owl:Class ;
+                          
+                          rdfs:label "Place"^^xsd:string ;
+                          
+                          rdfs:comment "Entities that have a somewhat fixed, physical extension."^^xsd:string .
+
+
+
+###  http://schema.org/PostalAddress
+
+<http://schema.org/PostalAddress> rdf:type owl:Class ;
+                                  
+                                  rdfs:label "Postal Address"^^xsd:string ;
+                                  
+                                  rdfs:subClassOf <http://schema.org/ContactPoint> ;
+                                  
+                                  rdfs:comment "The mailing address."^^xsd:string .
+
+
+
+###  http://schema.org/StructuredValue
+
+<http://schema.org/StructuredValue> rdf:type owl:Class ;
+                                    
+                                    rdfs:label "Structured Value"^^xsd:string ;
+                                    
+                                    rdfs:subClassOf <http://schema.org/Intangible> ;
+                                    
+                                    rdfs:comment "Structured values are strings—for example, addresses—that have certain constraints on their structure."^^xsd:string .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://datagov.nationalarchives.gov.uk/resource/Crown_copyright
+
+<http://datagov.nationalarchives.gov.uk/resource/Crown_copyright> rdf:type owl:NamedIndividual ;
+                                                                  
+                                                                  rdfs:label "Crown copyright"^^xsd:string ;
+                                                                  
+                                                                  owl:sameAs <http://dbpedia.org/resource/Crown_copyright> .
+
+
+
+###  http://datagov.nationalarchives.gov.uk/resource/Not_public_record
+
+<http://datagov.nationalarchives.gov.uk/resource/Not_public_record> rdf:type <http://nationalarchives.gov.uk/metadata/tna/LegalStatus> ,
+                                                                             owl:NamedIndividual ;
+                                                                    
+                                                                    rdfs:label "Not public record"^^xsd:string .
+
+
+
+###  http://datagov.nationalarchives.gov.uk/resource/Public_record
+
+<http://datagov.nationalarchives.gov.uk/resource/Public_record> rdf:type <http://nationalarchives.gov.uk/metadata/tna/LegalStatus> ,
+                                                                         owl:NamedIndividual ;
+                                                                
+                                                                rdfs:label "Public record"^^xsd:string .
+
+
+
+###  http://datagov.nationalarchives.gov.uk/resource/United_Kingdom
+
+<http://datagov.nationalarchives.gov.uk/resource/United_Kingdom> rdf:type <http://schema.org/Country> ,
+                                                                          owl:NamedIndividual ;
+                                                                 
+                                                                 rdfs:label "United Kingdom"^^xsd:string ;
+                                                                 
+                                                                 owl:sameAs <http://dbpedia.org/resource/United_Kingdom> .
+
+
+
+###  http://datagov.nationalarchives.gov.uk/resource/Welsh_public_record
+
+<http://datagov.nationalarchives.gov.uk/resource/Welsh_public_record> rdf:type <http://nationalarchives.gov.uk/metadata/tna/LegalStatus> ,
+                                                                               owl:NamedIndividual ;
+                                                                      
+                                                                      rdfs:label "Welsh public record"^^xsd:string .
+
+
+
+###  http://dbpedia.org/resource/Crown_copyright
+
+<http://dbpedia.org/resource/Crown_copyright> rdf:type <http://purl.org/dc/terms/RightsStatement> ,
+                                                       owl:NamedIndividual ;
+                                              
+                                              rdfs:label "Crown copyright"^^xsd:string .
+
+
+
+###  http://dbpedia.org/resource/United_Kingdom
+
+<http://dbpedia.org/resource/United_Kingdom> rdf:type owl:NamedIndividual ;
+                                             
+                                             rdfs:label "United Kingdom"^^xsd:string .
+
+
+
+
+###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net
+
