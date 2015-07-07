@@ -848,6 +848,31 @@ Recommended best practice is to identify the resource by means of a string confo
 
 
 
+###  http://purl.org/dc/terms/language
+
+<http://purl.org/dc/terms/language> rdf:type owl:DatatypeProperty ;
+                                    
+                                    rdfs:label "language"^^xsd:string ;
+                                    
+                                    rdfs:comment "Primary language of the folder/file"^^xsd:string ;
+                                    
+                                    rdfs:domain :DigitalFile ,
+                                                :DigitalFolder .
+
+
+
+###  http://purl.org/dc/terms/relation
+
+<http://purl.org/dc/terms/relation> rdf:type owl:DatatypeProperty ;
+                                    
+                                    rdfs:label "relation"^^xsd:string ;
+                                    
+                                    rdfs:comment "Related Material"^^xsd:string ;
+                                    
+                                    rdfs:domain :BornDigitalRecord .
+
+
+
 ###  http://purl.org/dc/terms/title
 
 <http://purl.org/dc/terms/title> rdf:type owl:DatatypeProperty ;
