@@ -1250,7 +1250,8 @@ Recommended best practice is to identify the resource by means of a string confo
 
 ###  http://datagov.nationalarchives.gov.uk/resource/Crown_copyright
 
-<http://datagov.nationalarchives.gov.uk/resource/Crown_copyright> rdf:type owl:NamedIndividual ;
+<http://datagov.nationalarchives.gov.uk/resource/Crown_copyright> rdf:type <http://purl.org/dc/terms/RightsStatement> ,
+                                                                           owl:NamedIndividual ;
                                                                   
                                                                   rdfs:label "Crown copyright"^^xsd:string ;
                                                                   
@@ -1298,8 +1299,7 @@ Recommended best practice is to identify the resource by means of a string confo
 
 ###  http://dbpedia.org/resource/Crown_copyright
 
-<http://dbpedia.org/resource/Crown_copyright> rdf:type <http://purl.org/dc/terms/RightsStatement> ,
-                                                       owl:NamedIndividual ;
+<http://dbpedia.org/resource/Crown_copyright> rdf:type owl:NamedIndividual ;
                                               
                                               rdfs:label "Crown copyright"^^xsd:string .
 
