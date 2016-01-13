@@ -9,6 +9,8 @@
 
 <http://nationalarchives.gov.uk/terms/dri> rdf:type owl:Ontology ;
                                            
+                                           owl:versionIRI <http://nationalarchives.gov.uk/terms/dri/3.0> ;
+                                           
                                            owl:imports <http://reference.data.gov.uk/def/central-government> .
 
 
@@ -1157,17 +1159,6 @@ owl:sameAs rdf:type owl:ObjectProperty ;
 
 
 
-###  http://datagov.nationalarchives.gov.uk/resource/Ministry_of_Defence_(United_Kingdom)
-
-<http://datagov.nationalarchives.gov.uk/resource/Ministry_of_Defence_(United_Kingdom)> rdf:type <http://reference.data.gov.uk/def/central-government/MinisterialDepartment> ,
-                                                                                                owl:NamedIndividual ;
-                                                                                       
-                                                                                       rdfs:label "Ministry of Defence (United Kingdom)"^^xsd:string ;
-                                                                                       
-                                                                                       owl:sameAs <http://dbpedia.org/resource/Ministry_of_Defence_(United_Kingdom)> .
-
-
-
 ###  http://datagov.nationalarchives.gov.uk/resource/War_Office
 
 <http://datagov.nationalarchives.gov.uk/resource/War_Office> rdf:type <http://reference.data.gov.uk/def/central-government/Department> ,
@@ -1176,6 +1167,17 @@ owl:sameAs rdf:type owl:ObjectProperty ;
                                                              rdfs:label "War Office"^^xsd:string ;
                                                              
                                                              owl:sameAs <http://dbpedia.org/resource/War_Office> .
+
+
+
+###  http://datagov.nationalarchives.gov.uk/resource/Ministry_of_Defence_(United_Kingdom)
+
+<http://datagov.nationalarchives.gov.uk/resource/Ministry_of_Defence_(United_Kingdom)> rdf:type <http://reference.data.gov.uk/def/central-government/MinisterialDepartment> ,
+                                                                                                owl:NamedIndividual ;
+                                                                                       
+                                                                                       rdfs:label "Ministry of Defence (United Kingdom)"^^xsd:string ;
+                                                                                       
+                                                                                       owl:sameAs <http://dbpedia.org/resource/Ministry_of_Defence_(United_Kingdom)> .
 
 
 
@@ -1211,19 +1213,19 @@ owl:sameAs rdf:type owl:ObjectProperty ;
 
 
 
-###  http://dbpedia.org/resource/Ministry_of_Defence_(United_Kingdom)
-
-<http://dbpedia.org/resource/Ministry_of_Defence_(United_Kingdom)> rdf:type owl:NamedIndividual ;
-                                                                   
-                                                                   rdfs:label "Ministry of Defence (United Kingdom)"^^xsd:string .
-
-
-
 ###  http://dbpedia.org/resource/War_Office
 
 <http://dbpedia.org/resource/War_Office> rdf:type owl:NamedIndividual ;
                                          
                                          rdfs:label "War Office"^^xsd:string .
+
+
+
+###  http://dbpedia.org/resource/Ministry_of_Defence_(United_Kingdom)
+
+<http://dbpedia.org/resource/Ministry_of_Defence_(United_Kingdom)> rdf:type owl:NamedIndividual ;
+                                                                   
+                                                                   rdfs:label "Ministry of Defence (United Kingdom)"^^xsd:string .
 
 
 
@@ -1740,6 +1742,24 @@ owl:sameAs rdf:type owl:ObjectProperty ;
 
 
 
+###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/27/1
+
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/27/1> rdf:type :ExemptionCode ,
+                                                                       owl:NamedIndividual ;
+                                                              
+                                                              rdfs:label "27(1)"^^xsd:string .
+
+
+
+###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/27/2
+
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/27/2> rdf:type :ExemptionCode ,
+                                                                       owl:NamedIndividual ;
+                                                              
+                                                              rdfs:label "27(2)"^^xsd:string .
+
+
+
 ###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/28
 
 <http://www.legislation.gov.uk/id/ukpga/2000/36/section/28> rdf:type :ExemptionCode ,
@@ -1755,6 +1775,24 @@ owl:sameAs rdf:type owl:ObjectProperty ;
                                                                      owl:NamedIndividual ;
                                                             
                                                             rdfs:label "29"^^xsd:string .
+
+
+
+###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/30/1
+
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/30/1> rdf:type :ExemptionCode ,
+                                                                       owl:NamedIndividual ;
+                                                              
+                                                              rdfs:label "30(1)"^^xsd:string .
+
+
+
+###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/30/2
+
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/30/2> rdf:type :ExemptionCode ,
+                                                                       owl:NamedIndividual ;
+                                                              
+                                                              rdfs:label "30(2)"^^xsd:string .
 
 
 
@@ -1794,105 +1832,6 @@ owl:sameAs rdf:type owl:ObjectProperty ;
 
 
 
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/36
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/36> rdf:type :ExemptionCode ,
-                                                                     owl:NamedIndividual ;
-                                                            
-                                                            rdfs:label "36"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/38
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/38> rdf:type :ExemptionCode ,
-                                                                     owl:NamedIndividual ;
-                                                            
-                                                            rdfs:label "38"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/39
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/39> rdf:type :ExemptionCode ,
-                                                                     owl:NamedIndividual ;
-                                                            
-                                                            rdfs:label "39"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/41
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/41> rdf:type :ExemptionCode ,
-                                                                     owl:NamedIndividual ;
-                                                            
-                                                            rdfs:label "41"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/42
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/42> rdf:type :ExemptionCode ,
-                                                                     owl:NamedIndividual ;
-                                                            
-                                                            rdfs:label "42"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/43
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/43> rdf:type :ExemptionCode ,
-                                                                     owl:NamedIndividual ;
-                                                            
-                                                            rdfs:label "43"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/44
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/44> rdf:type :ExemptionCode ,
-                                                                     owl:NamedIndividual ;
-                                                            
-                                                            rdfs:label "44"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/27/1
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/27/1> rdf:type :ExemptionCode ,
-                                                                       owl:NamedIndividual ;
-                                                              
-                                                              rdfs:label "27(1)"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/27/2
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/27/2> rdf:type :ExemptionCode ,
-                                                                       owl:NamedIndividual ;
-                                                              
-                                                              rdfs:label "27(2)"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/30/1
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/30/1> rdf:type :ExemptionCode ,
-                                                                       owl:NamedIndividual ;
-                                                              
-                                                              rdfs:label "30(1)"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/30/2
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/30/2> rdf:type :ExemptionCode ,
-                                                                       owl:NamedIndividual ;
-                                                              
-                                                              rdfs:label "30(2)"^^xsd:string .
-
-
-
 ###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/35/1/a
 
 <http://www.legislation.gov.uk/id/ukpga/2000/36/section/35/1/a> rdf:type :ExemptionCode ,
@@ -1926,6 +1865,15 @@ owl:sameAs rdf:type owl:ObjectProperty ;
                                                                          owl:NamedIndividual ;
                                                                 
                                                                 rdfs:label "35(1)(d)"^^xsd:string .
+
+
+
+###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/36
+
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/36> rdf:type :ExemptionCode ,
+                                                                     owl:NamedIndividual ;
+                                                            
+                                                            rdfs:label "36"^^xsd:string .
 
 
 
@@ -1983,6 +1931,24 @@ owl:sameAs rdf:type owl:ObjectProperty ;
 
 
 
+###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/38
+
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/38> rdf:type :ExemptionCode ,
+                                                                     owl:NamedIndividual ;
+                                                            
+                                                            rdfs:label "38"^^xsd:string .
+
+
+
+###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/39
+
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/39> rdf:type :ExemptionCode ,
+                                                                     owl:NamedIndividual ;
+                                                            
+                                                            rdfs:label "39"^^xsd:string .
+
+
+
 ###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/40/2
 
 <http://www.legislation.gov.uk/id/ukpga/2000/36/section/40/2> rdf:type :ExemptionCode ,
@@ -1992,6 +1958,42 @@ owl:sameAs rdf:type owl:ObjectProperty ;
 
 
 
+###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/41
 
-###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/41> rdf:type :ExemptionCode ,
+                                                                     owl:NamedIndividual ;
+                                                            
+                                                            rdfs:label "41"^^xsd:string .
+
+
+
+###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/42
+
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/42> rdf:type :ExemptionCode ,
+                                                                     owl:NamedIndividual ;
+                                                            
+                                                            rdfs:label "42"^^xsd:string .
+
+
+
+###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/43
+
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/43> rdf:type :ExemptionCode ,
+                                                                     owl:NamedIndividual ;
+                                                            
+                                                            rdfs:label "43"^^xsd:string .
+
+
+
+###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/44
+
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/44> rdf:type :ExemptionCode ,
+                                                                     owl:NamedIndividual ;
+                                                            
+                                                            rdfs:label "44"^^xsd:string .
+
+
+
+
+###  Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net
 
