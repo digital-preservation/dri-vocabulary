@@ -1117,7 +1117,7 @@ owl:sameAs rdf:type owl:ObjectProperty ;
 
 ###  http://datagov.nationalarchives.gov.uk/Welsh_Assembly_Government
 
-<http://datagov.nationalarchives.gov.uk/Welsh_Assembly_Government> rdf:type <http://reference.data.gov.uk/def/central-government/TribunalNDPB> ,
+<http://datagov.nationalarchives.gov.uk/Welsh_Assembly_Government> rdf:type <http://reference.data.gov.uk/def/central-government/DevolvedGovernment> ,
                                                                             owl:NamedIndividual ;
                                                                    
                                                                    rdfs:label "Welsh Assembly Government"^^xsd:string .
@@ -1129,7 +1129,11 @@ owl:sameAs rdf:type owl:ObjectProperty ;
 <http://datagov.nationalarchives.gov.uk/resource/Al-Sweady_Inquiry> rdf:type <http://reference.data.gov.uk/def/central-government/TribunalNDPB> ,
                                                                              owl:NamedIndividual ;
                                                                     
-                                                                    rdfs:label "Inquiry into allegations of human rights abuse of Iraqi nationals by British troops in the aftermath of the battle of Danny Boy (The Al-Sweady Inquiry)"^^xsd:string .
+                                                                    rdfs:label "Al-Sweady Inquiry"^^xsd:string ;
+                                                                    
+                                                                    <http://purl.org/dc/terms/description> "Inquiry into allegations of human rights abuse of Iraqi nationals by British troops in the aftermath of the battle of Danny Boy (The Al-Sweady Inquiry)"^^xsd:string ;
+                                                                    
+                                                                    owl:sameAs <http://dbpedia.org/resource/Al-Sweady_Inquiry> .
 
 
 
@@ -1196,6 +1200,14 @@ owl:sameAs rdf:type owl:ObjectProperty ;
                                                                                        rdfs:label "Ministry of Defence (United Kingdom)"^^xsd:string ;
                                                                                        
                                                                                        owl:sameAs <http://dbpedia.org/resource/Ministry_of_Defence_(United_Kingdom)> .
+
+
+
+###  http://dbpedia.org/resource/Al-Sweady_Inquiry
+
+<http://dbpedia.org/resource/Al-Sweady_Inquiry> rdf:type owl:NamedIndividual ;
+                                                
+                                                rdfs:label "Al-Sweady Inquiry"^^xsd:string .
 
 
 
