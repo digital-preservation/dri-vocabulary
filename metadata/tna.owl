@@ -333,19 +333,19 @@ A collection represents a distinct and related set of records. At TNA a collecti
 
 
 
-###  http://nationalarchives.gov.uk/metadata/tna#hasRedaction
+###  http://nationalarchives.gov.uk/metadata/tna#hasRedactionFile
 
-:hasRedaction rdf:type owl:DatatypeProperty ;
-              
-              rdfs:label "has redaction" ;
-              
-              rdfs:comment "This links to the redacted version of of the file" ;
-              
-              rdfs:domain :DigitalFile ;
-              
-              owl:propertyDisjointWith :isRedactionOf ;
-              
-              rdfs:range xsd:string .
+:hasRedactionFile rdf:type owl:DatatypeProperty ;
+                  
+                  rdfs:label "has redaction file" ;
+                  
+                  rdfs:comment "This links to the redacted version of the file" ;
+                  
+                  rdfs:domain :DigitalFile ;
+                  
+                  owl:propertyDisjointWith :isRedactionOf ;
+                  
+                  rdfs:range xsd:string .
 
 
 
