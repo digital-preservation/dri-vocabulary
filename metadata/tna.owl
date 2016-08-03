@@ -21,6 +21,20 @@
 #################################################################
 
 
+###  http://nationalarchives.gov.uk/metadata/tna#archivistNote
+
+:archivistNote rdf:type owl:ObjectProperty ;
+               
+               rdfs:label "archivist note"^^xsd:string ;
+               
+               rdfs:comment "a property used to point to a note that an archivist made at a certain time."^^xsd:string ;
+               
+               rdfs:domain :Cataloguing ;
+               
+               rdfs:range <http://nationalarchives.gov.uk/metadata/tna/ArchivistNote> .
+
+
+
 ###  http://nationalarchives.gov.uk/metadata/tna#cataloguing
 
 :cataloguing rdf:type owl:ObjectProperty ;
@@ -97,7 +111,11 @@
             
             rdfs:label "substitute"^^xsd:string ;
             
-            rdfs:comment "Where a digital file has been substituted this would be the substitute file. For example a JPEG2000 image may be substituted with a JPEG 1.0 image in order to have the same image in a smaller file."^^xsd:string .
+            rdfs:comment "Where a digital file has been substituted this would be the substitute file. For example a JPEG2000 image may be substituted with a JPEG 1.0 image in order to have the same image in a smaller file."^^xsd:string ;
+            
+            rdfs:domain :DigitalFile ;
+            
+            rdfs:range :Substitute .
 
 
 
@@ -215,6 +233,34 @@ Typically, rights information includes a statement about various property rights
 #################################################################
 
 
+###  http://nationalarchives.gov.uk/metadata/tna#archivistNoteDate
+
+:archivistNoteDate rdf:type owl:DatatypeProperty ;
+                   
+                   rdfs:label "archivist note date"^^xsd:string ;
+                   
+                   rdfs:comment "The date the archivist note was made at."^^xsd:string ;
+                   
+                   rdfs:domain <http://nationalarchives.gov.uk/metadata/tna/ArchivistNote> ;
+                   
+                   rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#archivistNoteInfo
+
+:archivistNoteInfo rdf:type owl:DatatypeProperty ;
+                   
+                   rdfs:label "archivist note info"^^xsd:string ;
+                   
+                   rdfs:comment "the archivist note text"^^xsd:string ;
+                   
+                   rdfs:domain <http://nationalarchives.gov.uk/metadata/tna/ArchivistNote> ;
+                   
+                   rdfs:range xsd:string .
+
+
+
 ###  http://nationalarchives.gov.uk/metadata/tna#batchIdentifier
 
 :batchIdentifier rdf:type owl:DatatypeProperty ;
@@ -256,6 +302,20 @@ A collection represents a distinct and related set of records. At TNA a collecti
                       rdfs:subPropertyOf <http://purl.org/dc/terms/identifier> ;
                       
                       rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#curatedTitle
+
+:curatedTitle rdf:type owl:DatatypeProperty ;
+              
+              rdfs:label "curated title"^^xsd:string ;
+              
+              rdfs:comment "curated title of the file (e.g. for typos or changing the extension)"^^xsd:string ;
+              
+              rdfs:domain :Cataloguing ;
+              
+              rdfs:range xsd:string .
 
 
 
@@ -654,6 +714,20 @@ Sometimes, very large documents (maps for example) are scanned into multiple ima
                   rdfs:subPropertyOf :uuidV4 ;
                   
                   rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna#physicalCondition
+
+:physicalCondition rdf:type owl:DatatypeProperty ;
+                   
+                   rdfs:label "physical condition"^^xsd:string ;
+                   
+                   rdfs:comment "The physical condition of the file"^^xsd:string ;
+                   
+                   rdfs:domain :Cataloguing ;
+                   
+                   rdfs:range xsd:string .
 
 
 
@@ -1142,6 +1216,16 @@ Recommended best practice is to identify the resource by means of a string confo
                rdfs:subClassOf <http://schema.org/CommunicateAction> ;
                
                rdfs:comment "A resource containing transcription information obtained from a digital file. For example an audio file may contain speech which can be transcribed."^^xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/metadata/tna/ArchivistNote
+
+<http://nationalarchives.gov.uk/metadata/tna/ArchivistNote> rdf:type owl:Class ;
+                                                            
+                                                            rdfs:label "Archivist note"^^xsd:string ;
+                                                            
+                                                            rdfs:comment "A resource containing information that the archivist put at ingest time together with a date when the archivist information was put."^^xsd:string .
 
 
 
