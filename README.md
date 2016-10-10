@@ -4,4 +4,4 @@ This repository contains two vocabularies:
 - The [UK National Archives Metadata Vocabulary](metadata)
 - The [Digital Records Infrastructure Catalogue Vocabulary](terms)
 
-These are [OWL](http://www.w3.org/TR/owl2-overview/) vocabularies which can be viewed and manipulated using the [Protege](http://protege.stanford.edu/) software from Stanford.
+These are [OWL](http://www.w3.org/TR/owl2-overview/) vocabularies which  can be viewed and manipulated using the [Protege](http://protege.stanford.edu/) software from Stanford.
