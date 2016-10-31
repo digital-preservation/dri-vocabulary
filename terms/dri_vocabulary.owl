@@ -595,6 +595,26 @@ owl:sameAs rdf:type owl:ObjectProperty ;
 
 
 
+###  http://nationalarchives.gov.uk/terms/dri#formerReferenceDepartment
+
+:formerReferenceDepartment rdf:type owl:DatatypeProperty ;
+
+                           rdfs:label "former reference department"^^xsd:string ;
+
+                           rdfs:range xsd:string .
+
+
+
+###  http://nationalarchives.gov.uk/terms/dri#former_reference_TNA
+
+:former_reference_TNA rdf:type owl:DatatypeProperty ;
+
+                      rdfs:label "former reference TNA"^^xsd:string ;
+
+                      rdfs:range xsd:string .
+
+
+
 ###  http://nationalarchives.gov.uk/terms/dri#hasSchema
 
 :hasSchema rdf:type owl:DatatypeProperty ;
