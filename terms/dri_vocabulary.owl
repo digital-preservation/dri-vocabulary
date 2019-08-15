@@ -2050,6 +2050,16 @@ owl:sameAs rdf:type owl:ObjectProperty ;
                                                                      owl:NamedIndividual ;
                                                             
                                                             rdfs:label "43"^^xsd:string .
+                                                            
+###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/43/1
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/43/1> rdf:type :ExemptionCode ,
+                                                                    owl:NamedIndividual ;
+rdfs:label "43(1)"^^xsd:string .
+
+###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/43/2
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/43/2> rdf:type :ExemptionCode ,
+                                                                    owl:NamedIndividual ;
+rdfs:label "43(2)"^^xsd:string .
 
 
 
