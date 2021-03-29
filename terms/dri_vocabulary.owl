@@ -1,2077 +1,1033 @@
-@prefix : <http://nationalarchives.gov.uk/terms/dri#> .
+# baseURI: http://nationalarchives.gov.uk/terms/dri
+# prefix: dri
+
+@prefix central-government: <http://reference.data.gov.uk/def/central-government/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dri: <http://nationalarchives.gov.uk/terms/dri#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix tna: <http://nationalarchives.gov.uk/metadata/tna#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix central-government: <http://reference.data.gov.uk/def/central-government#> .
-@base <http://nationalarchives.gov.uk/terms/dri> .
 
-<http://nationalarchives.gov.uk/terms/dri> rdf:type owl:Ontology ;
-                                           
-                                           owl:versionIRI <http://nationalarchives.gov.uk/terms/dri/3.0> ;
-                                           
-                                           owl:imports <http://reference.data.gov.uk/def/central-government> .
-
-
-#################################################################
-#
-#    Annotation properties
-#
-#################################################################
-
-
-###  http://purl.org/dc/terms/description
-
-<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
-
-
-
-
-
-#################################################################
-#
-#    Object Properties
-#
-#################################################################
-
-
-###  http://nationalarchives.gov.uk/terms/dri#accumulation
-
-:accumulation rdf:type owl:ObjectProperty ;
-              
-              rdfs:label "accumulation"^^xsd:string ;
-              
-              rdfs:range :Accumulation ;
-              
-              rdfs:domain :TransferAgreement .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#closure
-
-:closure rdf:type owl:ObjectProperty ;
-         
-         rdfs:label "closure"^^xsd:string ;
-         
-         rdfs:range :Closure ;
-         
-         rdfs:domain :DeliverableUnit ,
-                     :File .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#closureType
-
-:closureType rdf:type owl:ObjectProperty ;
-             
-             rdfs:label "closure type"^^xsd:string ;
-             
-             rdfs:domain :Closure ;
-             
-             rdfs:range :ClosureType .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#creatingBody
-
-:creatingBody rdf:type owl:ObjectProperty ;
-              
-              rdfs:label "creating body"^^xsd:string ;
-              
-              rdfs:domain :TransferAgreement ;
-              
-              rdfs:range <http://www.w3.org/ns/org#FormalOrganization> .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#directory
-
-:directory rdf:type owl:ObjectProperty ;
-           
-           rdfs:label "directory"^^xsd:string ;
-           
-           rdfs:range :Directory ;
-           
-           rdfs:domain :Resource .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#exemptionCode
-
-:exemptionCode rdf:type owl:ObjectProperty ;
-               
-               rdfs:label "FOI exemption  code"^^xsd:string ;
-               
-               rdfs:domain :Closure ;
-               
-               rdfs:range :ExemptionCode .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#exportMember
-
-:exportMember rdf:type owl:ObjectProperty ;
-              
-              rdfs:label "export member"^^xsd:string ;
-              
-              rdfs:domain :Export ;
-              
-              rdfs:range :Item ,
-                         :Resource ;
-              
-              rdfs:subPropertyOf rdfs:member .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#exportStatus
-
-:exportStatus rdf:type owl:ObjectProperty ;
-              
-              rdfs:label "export status"^^xsd:string ;
-              
-              rdfs:domain :Export ;
-              
-              rdfs:range :ExportStatus .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#file
-
-:file rdf:type owl:ObjectProperty ;
-      
-      rdfs:label "file"^^xsd:string ;
-      
-      rdfs:range :File ;
-      
-      rdfs:domain :Manifestation .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#hasEntry
-
-:hasEntry rdf:type owl:ObjectProperty ;
-          
-          rdfs:label "has entry"^^xsd:string ;
-          
-          rdfs:domain :Map ;
-          
-          rdfs:range :MapEntry .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#hasSeriesPart
-
-:hasSeriesPart rdf:type owl:ObjectProperty ;
-               
-               rdfs:label "has series part"^^xsd:string ;
-               
-               rdfs:domain :Collection ;
-               
-               rdfs:range :Series ;
-               
-               owl:inverseOf :isPartOfCollection ;
-               
-               rdfs:subPropertyOf <http://purl.org/dc/terms/hasPart> .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#hasUnitPart
-
-:hasUnitPart rdf:type owl:ObjectProperty ;
-             
-             rdfs:label "has unit part"^^xsd:string ;
-             
-             rdfs:domain :Delivery ;
-             
-             rdfs:range :Unit ;
-             
-             owl:inverseOf :isPartOfDelivery ;
-             
-             rdfs:subPropertyOf <http://purl.org/dc/terms/hasPart> .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#isPartOfCollection
-
-:isPartOfCollection rdf:type owl:ObjectProperty ;
-                    
-                    rdfs:label "is part of collection"^^xsd:string ;
-                    
-                    rdfs:range :Collection ;
-                    
-                    rdfs:domain :Series ;
-                    
-                    rdfs:subPropertyOf <http://purl.org/dc/terms/isPartOf> .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#isPartOfDelivery
-
-:isPartOfDelivery rdf:type owl:ObjectProperty ;
-                  
-                  rdfs:label "is part of delivery"^^xsd:string ;
-                  
-                  rdfs:range :Delivery ;
-                  
-                  rdfs:domain :Unit ;
-                  
-                  rdfs:subPropertyOf <http://purl.org/dc/terms/isPartOf> .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#isPartOfSeries
-
-:isPartOfSeries rdf:type owl:ObjectProperty ;
-                
-                rdfs:label "is part of series"^^xsd:string ;
-                
-                rdfs:domain :Item ,
-                            :Part ;
-                
-                rdfs:range :Series ;
-                
-                rdfs:subPropertyOf <http://purl.org/dc/terms/isPartOf> .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#isPartOfUnit
-
-:isPartOfUnit rdf:type owl:ObjectProperty ;
-              
-              rdfs:label "is part of unit"^^xsd:string ;
-              
-              rdfs:domain :Part ;
-              
-              rdfs:range :Unit ;
-              
-              rdfs:subPropertyOf <http://purl.org/dc/terms/isPartOf> .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#isReferencedBy
-
-:isReferencedBy rdf:type owl:ObjectProperty ;
-                
-                rdfs:label "is referenced by"^^xsd:string ;
-                
-                rdfs:range :Delivery ,
-                           :Map ;
-                
-                rdfs:domain :TransferAgreement ;
-                
-                owl:inverseOf <http://purl.org/dc/terms/references> .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#medium
-
-:medium rdf:type owl:ObjectProperty ;
-        
-        rdfs:label "medium"^^xsd:string ;
-        
-        rdfs:range :Medium ;
-        
-        rdfs:domain :Unit .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#parent
-
-:parent rdf:type owl:ObjectProperty ;
-        
-        rdfs:label "parent"^^xsd:string ;
-        
-        rdfs:range :DeliverableUnit ;
-        
-        rdfs:domain :Item .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#partStatus
-
-:partStatus rdf:type owl:ObjectProperty ;
-            
-            rdfs:label "part status"^^xsd:string ;
-            
-            rdfs:domain :Part ;
-            
-            rdfs:range :PartStatus .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#recordListMember
-
-:recordListMember rdf:type owl:ObjectProperty ;
-                  
-                  rdfs:label "record list member"^^xsd:string ;
-                  
-                  rdfs:range :DeliverableUnit ,
-                             :File ;
-                  
-                  rdfs:domain :RecordList .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#transferAsset
-
-:transferAsset rdf:type owl:ObjectProperty ;
-               
-               rdfs:label "transfer asset"^^xsd:string ;
-               
-               rdfs:domain :Transfer ;
-               
-               rdfs:range :TransferAsset .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#transferAssetStatus
-
-:transferAssetStatus rdf:type owl:ObjectProperty ;
-                     
-                     rdfs:label "transfer asset status"^^xsd:string ;
-                     
-                     rdfs:domain :TransferAsset ;
-                     
-                     rdfs:range :TransferAssetStatus .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#transferOf
-
-:transferOf rdf:type owl:ObjectProperty ;
-            
-            rdfs:label "transfer of"^^xsd:string ;
-            
-            rdfs:range :Part ,
-                       :Series ;
-            
-            rdfs:domain :TransferAgreement .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#transferStatus
-
-:transferStatus rdf:type owl:ObjectProperty ;
-                
-                rdfs:label "transfer status"^^xsd:string ;
-                
-                rdfs:domain :Transfer ;
-                
-                rdfs:range :TransferStatus .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#transferringBody
-
-:transferringBody rdf:type owl:ObjectProperty ;
-                  
-                  rdfs:label "transferring body"^^xsd:string ;
-                  
-                  rdfs:domain :TransferAgreement ;
-                  
-                  rdfs:range <http://www.w3.org/ns/org#FormalOrganization> .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#unitStatus
-
-:unitStatus rdf:type owl:ObjectProperty ;
-            
-            rdfs:label "unit status"^^xsd:string ;
-            
-            rdfs:domain :Unit ;
-            
-            rdfs:range :UnitStatus .
-
-
-
-###  http://purl.org/dc/terms/format
-
-<http://purl.org/dc/terms/format> rdf:type owl:ObjectProperty ;
-                                  
-                                  rdfs:label "format"^^xsd:string ;
-                                  
-                                  rdfs:domain :Whitelist ;
-                                  
-                                  rdfs:range <http://purl.org/dc/terms/MediaType> .
-
-
-
-###  http://purl.org/dc/terms/hasPart
-
-<http://purl.org/dc/terms/hasPart> rdf:type owl:ObjectProperty ;
-                                   
-                                   rdfs:label "has part"^^xsd:string .
-
-
-
-###  http://purl.org/dc/terms/isPartOf
-
-<http://purl.org/dc/terms/isPartOf> rdf:type owl:ObjectProperty ;
-                                    
-                                    rdfs:label "is part of"^^xsd:string .
-
-
-
-###  http://purl.org/dc/terms/references
-
-<http://purl.org/dc/terms/references> rdf:type owl:ObjectProperty ;
-                                      
-                                      rdfs:label "references"^^xsd:string ;
-                                      
-                                      rdfs:domain :Delivery ,
-                                                  :Map ;
-                                      
-                                      rdfs:range :TransferAgreement ;
-                                      
-                                      rdfs:domain :Whitelist .
-
-
-
-###  http://schema.org/manufacturer
-
-<http://schema.org/manufacturer> rdf:type owl:ObjectProperty ;
-                                 
-                                 rdfs:label "manufacturer"^^xsd:string ;
-                                 
-                                 rdfs:domain :PhysicalMedia ;
-                                 
-                                 rdfs:range <http://www.w3.org/ns/org#Organization> .
-
-
-
-###  http://www.w3.org/2000/01/rdf-schema#member
-
-rdfs:member rdf:type owl:ObjectProperty ;
-            
-            rdfs:label "member"^^xsd:string .
-
-
-
-###  http://www.w3.org/2002/07/owl#sameAs
-
-owl:sameAs rdf:type owl:ObjectProperty ;
-           
-           rdfs:label "same as"^^xsd:string ;
-           
-           rdfs:domain :DeliverableUnit ;
-           
-           rdfs:range :DiscoveryItem .
-
-
-
-
-
-#################################################################
-#
-#    Data properties
-#
-#################################################################
-
-
-###  http://nationalarchives.gov.uk/terms/dri#canTransferToDiscovery
-
-:canTransferToDiscovery rdf:type owl:DatatypeProperty ;
-                        
-                        rdfs:label "can transfer to Discovery"^^xsd:string ;
-                        
-                        rdfs:domain :Series ;
-                        
-                        rdfs:range xsd:boolean .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#checksum
-
-:checksum rdf:type owl:DatatypeProperty ;
-          
-          rdfs:label "checksum"^^xsd:string ;
-          
-          rdfs:domain :ElectronicAssembly ;
-          
-          rdfs:range xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#closurePeriod
-
-:closurePeriod rdf:type owl:DatatypeProperty ;
-               
-               rdfs:label "closure period"^^xsd:string ;
-               
-               rdfs:domain :Closure ;
-               
-               rdfs:range xsd:decimal .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#collectionIdentifier
-
-:collectionIdentifier rdf:type owl:DatatypeProperty ;
-                      
-                      rdfs:label "collection identifier"^^xsd:string ;
-                      
-                      rdfs:domain :Collection ;
-                      
-                      rdfs:subPropertyOf <http://purl.org/dc/terms/identifier> ;
-                      
-                      rdfs:range xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#completedDate
-
-:completedDate rdf:type owl:DatatypeProperty ;
-               
-               rdfs:label "completed date"^^xsd:string ;
-               
-               rdfs:domain :Export ;
-               
-               rdfs:subPropertyOf <http://purl.org/dc/terms/date> ;
-               
-               rdfs:range xsd:dateTime .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#counter
-
-:counter rdf:type owl:DatatypeProperty ;
-         
-         rdfs:label "counter"^^xsd:string ;
-         
-         rdfs:domain :MapEntry ,
-                     :Series ;
-         
-         rdfs:range xsd:integer .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#descriptionStatus
-
-:descriptionStatus rdf:type owl:DatatypeProperty ;
-                   
-                   rdfs:label "description status"^^xsd:string ;
-                   
-                   rdfs:domain :Closure ;
-                   
-                   rdfs:range xsd:decimal .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#documentStatus
-
-:documentStatus rdf:type owl:DatatypeProperty ;
-                
-                rdfs:label "document status"^^xsd:string ;
-                
-                rdfs:domain :Closure ;
-                
-                rdfs:range xsd:decimal .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#exemptionAsserted
-
-:exemptionAsserted rdf:type owl:DatatypeProperty ;
-                   
-                   rdfs:label "FOI exemption asserted"^^xsd:string ;
-                   
-                   rdfs:domain :Closure ;
-                   
-                   rdfs:range xsd:integer .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#fileAsDeliverableUnit
-
-:fileAsDeliverableUnit rdf:type owl:DatatypeProperty ;
-                       
-                       rdfs:label "file as deliverable unit"^^xsd:string ;
-                       
-                       rdfs:domain :Series ;
-                       
-                       rdfs:range xsd:boolean .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#formerReferenceDepartment
-
-:formerReferenceDepartment rdf:type owl:DatatypeProperty ;
-
-                           rdfs:label "former reference department"^^xsd:string ;
-
-                           rdfs:range xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#former_reference_TNA
-
-:former_reference_TNA rdf:type owl:DatatypeProperty ;
-
-                      rdfs:label "former reference TNA"^^xsd:string ;
-
-                      rdfs:range xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#hasSchema
-
-:hasSchema rdf:type owl:DatatypeProperty ;
-           
-           rdfs:label "has schema"^^xsd:string ;
-           
-           rdfs:domain :Series ;
-           
-           rdfs:range xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#mapKey
-
-:mapKey rdf:type owl:DatatypeProperty ;
-        
-        rdfs:label "map key"^^xsd:string ;
-        
-        rdfs:domain :MapEntry ;
-        
-        rdfs:range xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#mapValue
-
-:mapValue rdf:type owl:DatatypeProperty ;
-          
-          rdfs:label "map value"^^xsd:string ;
-          
-          rdfs:domain :MapEntry ;
-          
-          rdfs:range xsd:anyURI ,
-                     xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#reviewDate
-
-:reviewDate rdf:type owl:DatatypeProperty ;
-            
-            rdfs:label "review date"^^xsd:string ;
-            
-            rdfs:domain :Closure ;
-            
-            rdfs:subPropertyOf <http://purl.org/dc/terms/date> ;
-            
-            rdfs:range xsd:dateTime .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#statusModified
-
-:statusModified rdf:type owl:DatatypeProperty ;
-                
-                rdfs:label "status modified"^^xsd:string ;
-                
-                rdfs:domain :PartStatus ,
-                            :UnitStatus ;
-                
-                rdfs:subPropertyOf <http://purl.org/dc/terms/modified> ;
-                
-                rdfs:range xsd:dateTime .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#username
-
-:username rdf:type owl:DatatypeProperty ;
-          
-          rdfs:label "username"^^xsd:string ;
-          
-          rdfs:range xsd:string .
-
-
-
-###  http://purl.org/dc/terms/alternative
-
-<http://purl.org/dc/terms/alternative> rdf:type owl:DatatypeProperty ;
-                                       
-                                       rdfs:label "alternative title"^^xsd:string ;
-                                       
-                                       rdfs:domain :Closure ;
-                                       
-                                       rdfs:range xsd:string .
-
-
-
-###  http://purl.org/dc/terms/date
-
-<http://purl.org/dc/terms/date> rdf:type owl:DatatypeProperty .
-
-
-
-###  http://purl.org/dc/terms/identifier
-
-<http://purl.org/dc/terms/identifier> rdf:type owl:DatatypeProperty .
-
-
-
-###  http://purl.org/dc/terms/modified
-
-<http://purl.org/dc/terms/modified> rdf:type owl:DatatypeProperty ;
-                                    
-                                    rdfs:label "modified"^^xsd:string ;
-                                    
-                                    rdfs:range xsd:dateTime .
-
-
-
-###  http://schema.org/model
-
-<http://schema.org/model> rdf:type owl:DatatypeProperty ;
-                          
-                          rdfs:label "model"^^xsd:string ;
-                          
-                          rdfs:domain :PhysicalMedia ;
-                          
-                          rdfs:range xsd:string .
-
-
-
-###  http://schema.org/serialNumber
-
-<http://schema.org/serialNumber> rdf:type owl:DatatypeProperty ;
-                                 
-                                 rdfs:label "serial number"^^xsd:string ;
-                                 
-                                 rdfs:domain :PhysicalMedia ;
-                                 
-                                 rdfs:range xsd:string .
-
-
-
-
-
-#################################################################
-#
-#    Classes
-#
-#################################################################
-
-
-###  http://dbpedia.org/resource/Private_company_limited_by_guarantee
-
-<http://dbpedia.org/resource/Private_company_limited_by_guarantee> rdf:type owl:Class ;
-                                                                   
-                                                                   rdfs:label "Private  company limited by guarantee"^^xsd:string ;
-                                                                   
-                                                                   rdfs:subClassOf <http://www.w3.org/ns/org#FormalOrganization> .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#Accumulation
-
-:Accumulation rdf:type owl:Class ;
-              
-              rdfs:label "Accumulation"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#BornDigitalCollection
-
-:BornDigitalCollection rdf:type owl:Class ;
-                       
-                       rdfs:label "Born-digital collection"^^xsd:string ;
-                       
-                       rdfs:subClassOf :Collection .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#Closure
-
-:Closure rdf:type owl:Class ;
-         
-         rdfs:label "Closure"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#ClosureType
-
-:ClosureType rdf:type owl:Class ;
-             
-             rdfs:label "Closure type"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#Collection
-
-:Collection rdf:type owl:Class ;
-            
-            rdfs:label "Collection"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#DeliverableUnit
-
-:DeliverableUnit rdf:type owl:Class ;
-                 
-                 rdfs:label "Deliverable unit"^^xsd:string ;
-                 
-                 rdfs:subClassOf :Item .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#Delivery
-
-:Delivery rdf:type owl:Class ;
-          
-          rdfs:label "Delivery"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#DigitisedRecordCollection
-
-:DigitisedRecordCollection rdf:type owl:Class ;
-                           
-                           rdfs:label "Digitised record collection"^^xsd:string ;
-                           
-                           rdfs:subClassOf :Collection .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#DigitisedSurrogateCollection
-
-:DigitisedSurrogateCollection rdf:type owl:Class ;
-                              
-                              rdfs:label "Digitised surrogate collection"^^xsd:string ;
-                              
-                              rdfs:subClassOf :Collection .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#Directory
-
-:Directory rdf:type owl:Class ;
-           
-           rdfs:label "Directory"^^xsd:string ;
-           
-           rdfs:subClassOf :Resource .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#DiscoveryItem
-
-:DiscoveryItem rdf:type owl:Class ;
-               
-               rdfs:label "Discovery Item"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#ElectronicAssembly
-
-:ElectronicAssembly rdf:type owl:Class ;
-                    
-                    rdfs:label "Electronic Assembly"^^xsd:string ;
-                    
-                    rdfs:subClassOf :Medium .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#ExemptionCode
-
-:ExemptionCode rdf:type owl:Class ;
-               
-               rdfs:label "FOI exemption code"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#Export
-
-:Export rdf:type owl:Class ;
-        
-        rdfs:label "Export"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#ExportStatus
-
-:ExportStatus rdf:type owl:Class ;
-              
-              rdfs:label "Export status"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#File
-
-:File rdf:type owl:Class ;
-      
-      rdfs:label "File"^^xsd:string ;
-      
-      rdfs:subClassOf :Resource .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#Item
-
-:Item rdf:type owl:Class ;
-      
-      rdfs:label "Item"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#LiteralMap
-
-:LiteralMap rdf:type owl:Class ;
-            
-            rdfs:label "Literal map"^^xsd:string ;
-            
-            rdfs:subClassOf :Map .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#Manifestation
-
-:Manifestation rdf:type owl:Class ;
-               
-               rdfs:label "Manifestation"^^xsd:string ;
-               
-               rdfs:subClassOf :Item .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#Map
-
-:Map rdf:type owl:Class ;
-     
-     rdfs:label "Map"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#MapEntry
-
-:MapEntry rdf:type owl:Class ;
-          
-          rdfs:label "Map entry"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#Medium
-
-:Medium rdf:type owl:Class ;
-        
-        rdfs:label "Medium"^^xsd:string ;
-        
-        rdfs:subClassOf <http://purl.org/dc/terms/MediaType> .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#PaperManifestation
-
-:PaperManifestation rdf:type owl:Class ;
-                    
-                    rdfs:label "Paper manifestation"^^xsd:string ;
-                    
-                    rdfs:subClassOf :Manifestation .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#Part
-
-:Part rdf:type owl:Class ;
-      
-      rdfs:label "Part"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#PartStatus
-
-:PartStatus rdf:type owl:Class ;
-            
-            rdfs:label "Part status"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#PhysicalMedia
-
-:PhysicalMedia rdf:type owl:Class ;
-               
-               rdfs:label "Physical Media"^^xsd:string ;
-               
-               rdfs:subClassOf :Medium .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#PresentationManifestation
-
-:PresentationManifestation rdf:type owl:Class ;
-                           
-                           rdfs:label "Presentation manifestation"^^xsd:string ;
-                           
-                           rdfs:subClassOf :Manifestation .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#PreservationManifestation
-
-:PreservationManifestation rdf:type owl:Class ;
-                           
-                           rdfs:label "Preservation manifestation"^^xsd:string ;
-                           
-                           rdfs:subClassOf :Manifestation .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#RecordList
-
-:RecordList rdf:type owl:Class ;
-            
-            rdfs:label "Record list"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#Resource
-
-:Resource rdf:type owl:Class ;
-          
-          rdfs:label "Resource"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#ResourceMap
-
-:ResourceMap rdf:type owl:Class ;
-             
-             rdfs:label "Resource map"^^xsd:string ;
-             
-             rdfs:subClassOf :Map .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#Series
-
-:Series rdf:type owl:Class ;
-        
-        rdfs:label "Series"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#Transfer
-
-:Transfer rdf:type owl:Class ;
-          
-          rdfs:label "Transfer"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#TransferAgreement
-
-:TransferAgreement rdf:type owl:Class ;
-                   
-                   rdfs:label "Transfer agreement"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#TransferAsset
-
-:TransferAsset rdf:type owl:Class ;
-               
-               rdfs:label "Transfer asset"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#TransferAssetStatus
-
-:TransferAssetStatus rdf:type owl:Class ;
-                     
-                     rdfs:label "Transfer asset status"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#TransferStatus
-
-:TransferStatus rdf:type owl:Class ;
-                
-                rdfs:label "Transfer status"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#Unit
-
-:Unit rdf:type owl:Class ;
-      
-      rdfs:label "Unit"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#UnitStatus
-
-:UnitStatus rdf:type owl:Class ;
-            
-            rdfs:label "Unit status"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/terms/dri#Whitelist
-
-:Whitelist rdf:type owl:Class ;
-           
-           rdfs:label "Whitelist"^^xsd:string .
-
-
-
-###  http://purl.org/dc/terms/MediaType
-
-<http://purl.org/dc/terms/MediaType> rdf:type owl:Class ;
-                                     
-                                     rdfs:label "Media type"^^xsd:string .
-
-
-
-
-
-#################################################################
-#
-#    Individuals
-#
-#################################################################
-
-
-###  http://datagov.nationalarchives.gov.uk/Welsh_Assembly_Government
-
-<http://datagov.nationalarchives.gov.uk/Welsh_Assembly_Government> rdf:type <http://reference.data.gov.uk/def/central-government/DevolvedGovernment> ,
-                                                                            owl:NamedIndividual ;
-                                                                   
-                                                                   rdfs:label "Welsh Assembly Government"^^xsd:string .
-
-
-
-###  http://datagov.nationalarchives.gov.uk/resource/Al-Sweady_Inquiry
-
-<http://datagov.nationalarchives.gov.uk/resource/Al-Sweady_Inquiry> rdf:type <http://reference.data.gov.uk/def/central-government/TribunalNDPB> ,
-                                                                             owl:NamedIndividual ;
-                                                                    
-                                                                    rdfs:label "Al-Sweady Inquiry"^^xsd:string ;
-                                                                    
-                                                                    <http://purl.org/dc/terms/description> "Inquiry into allegations of human rights abuse of Iraqi nationals by British troops in the aftermath of the battle of Danny Boy (The Al-Sweady Inquiry)"^^xsd:string ;
-                                                                    
-                                                                    owl:sameAs <http://dbpedia.org/resource/Al-Sweady_Inquiry> .
-
-
-
-###  http://datagov.nationalarchives.gov.uk/resource/Insolvency_Service
-
-<http://datagov.nationalarchives.gov.uk/resource/Insolvency_Service> rdf:type <http://reference.data.gov.uk/def/central-government/ExecutiveAgency> ,
-                                                                              owl:NamedIndividual ;
-                                                                     
-                                                                     rdfs:label "Insolvency Service"^^xsd:string ;
-                                                                     
-                                                                     owl:sameAs <http://dbpedia.org/resource/Insolvency_Service> .
-
-
-
-###  http://datagov.nationalarchives.gov.uk/resource/Leveson_Inquiry
-
-<http://datagov.nationalarchives.gov.uk/resource/Leveson_Inquiry> rdf:type <http://reference.data.gov.uk/def/central-government/TribunalNDPB> ,
-                                                                           owl:NamedIndividual ;
-                                                                  
-                                                                  rdfs:label "Leveson Inquiry"^^xsd:string ;
-                                                                  
-                                                                  owl:sameAs <http://dbpedia.org/resource/Leveson_Inquiry> .
-
-
-
-###  http://datagov.nationalarchives.gov.uk/resource/London_Organising_Committee_of_the_Olympic_and_Paralympic_Games
-
-<http://datagov.nationalarchives.gov.uk/resource/London_Organising_Committee_of_the_Olympic_and_Paralympic_Games> rdf:type <http://dbpedia.org/resource/Private_company_limited_by_guarantee> ,
-                                                                                                                           owl:NamedIndividual ;
-                                                                                                                  
-                                                                                                                  rdfs:label "London Organising Committee of the Olympic and Paralympic Games"^^xsd:string ;
-                                                                                                                  
-                                                                                                                  owl:sameAs <http://dbpedia.org/resource/London_Organising_Committee_of_the_Olympic_and_Paralympic_Games> .
-
-
-
-###  http://datagov.nationalarchives.gov.uk/resource/Millenium_Commission
-
-<http://datagov.nationalarchives.gov.uk/resource/Millenium_Commission> rdf:type <http://reference.data.gov.uk/def/central-government/NonDepartmentalPublicBody> ,
-                                                                                owl:NamedIndividual ;
-                                                                       
-                                                                       rdfs:comment "Millenium Commission"^^xsd:string ;
-                                                                       
-                                                                       owl:sameAs <http://dbpedia.org/resource/Millenium_Commission> .
-
-
-
-###  http://datagov.nationalarchives.gov.uk/resource/War_Office
-
-<http://datagov.nationalarchives.gov.uk/resource/War_Office> rdf:type <http://reference.data.gov.uk/def/central-government/Department> ,
-                                                                      owl:NamedIndividual ;
-                                                             
-                                                             rdfs:label "War Office"^^xsd:string ;
-                                                             
-                                                             owl:sameAs <http://dbpedia.org/resource/War_Office> .
-
-
-
-###  http://datagov.nationalarchives.gov.uk/resource/Ministry_of_Defence_(United_Kingdom)
-
-<http://datagov.nationalarchives.gov.uk/resource/Ministry_of_Defence_(United_Kingdom)> rdf:type <http://reference.data.gov.uk/def/central-government/MinisterialDepartment> ,
-                                                                                                owl:NamedIndividual ;
-                                                                                       
-                                                                                       rdfs:label "Ministry of Defence (United Kingdom)"^^xsd:string ;
-                                                                                       
-                                                                                       owl:sameAs <http://dbpedia.org/resource/Ministry_of_Defence_(United_Kingdom)> .
-
-
-
-###  http://dbpedia.org/resource/Al-Sweady_Inquiry
-
-<http://dbpedia.org/resource/Al-Sweady_Inquiry> rdf:type owl:NamedIndividual ;
-                                                
-                                                rdfs:label "Al-Sweady Inquiry"^^xsd:string .
-
-
-
-###  http://dbpedia.org/resource/Insolvency_Service
-
-<http://dbpedia.org/resource/Insolvency_Service> rdf:type owl:NamedIndividual ;
-                                                 
-                                                 rdfs:label "Insolvency Service"^^xsd:string .
-
-
-
-###  http://dbpedia.org/resource/Leveson_Inquiry
-
-<http://dbpedia.org/resource/Leveson_Inquiry> rdf:type owl:NamedIndividual ;
-                                              
-                                              rdfs:label "Leveson Inquiry"^^xsd:string .
-
-
-
-###  http://dbpedia.org/resource/London_Organising_Committee_of_the_Olympic_and_Paralympic_Games
-
-<http://dbpedia.org/resource/London_Organising_Committee_of_the_Olympic_and_Paralympic_Games> rdf:type owl:NamedIndividual ;
-                                                                                              
-                                                                                              rdfs:label "London Organising Committee of the Olympic and Paralympic Games"^^xsd:string .
-
-
-
-###  http://dbpedia.org/resource/Millenium_Commission
-
-<http://dbpedia.org/resource/Millenium_Commission> rdf:type owl:NamedIndividual ;
-                                                   
-                                                   rdfs:label "Millenium Commission"^^xsd:string .
-
-
-
-###  http://dbpedia.org/resource/War_Office
-
-<http://dbpedia.org/resource/War_Office> rdf:type owl:NamedIndividual ;
-                                         
-                                         rdfs:label "War Office"^^xsd:string .
-
-
-
-###  http://dbpedia.org/resource/Ministry_of_Defence_(United_Kingdom)
-
-<http://dbpedia.org/resource/Ministry_of_Defence_(United_Kingdom)> rdf:type owl:NamedIndividual ;
-                                                                   
-                                                                   rdfs:label "Ministry of Defence (United Kingdom)"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/closure#A
-
-<http://nationalarchives.gov.uk/dri/catalogue/closure#A> rdf:type :ClosureType ,
-                                                                  owl:NamedIndividual ;
-                                                         
-                                                         rdfs:label "open on transfer"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/closure#C
-
-<http://nationalarchives.gov.uk/dri/catalogue/closure#C> rdf:type :ClosureType ,
-                                                                  owl:NamedIndividual ;
-                                                         
-                                                         rdfs:label "closed, for review in"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/closure#D
-
-<http://nationalarchives.gov.uk/dri/catalogue/closure#D> rdf:type :ClosureType ,
-                                                                  owl:NamedIndividual ;
-                                                         
-                                                         rdfs:label "retained until"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/closure#F
-
-<http://nationalarchives.gov.uk/dri/catalogue/closure#F> rdf:type :ClosureType ,
-                                                                  owl:NamedIndividual ;
-                                                         
-                                                         rdfs:label "closed for"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/closure#I
-
-<http://nationalarchives.gov.uk/dri/catalogue/closure#I> rdf:type :ClosureType ,
-                                                                  owl:NamedIndividual ;
-                                                         
-                                                         rdfs:label "open immediately"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/closure#N
-
-<http://nationalarchives.gov.uk/dri/catalogue/closure#N> rdf:type :ClosureType ,
-                                                                  owl:NamedIndividual ;
-                                                         
-                                                         rdfs:label "normal closure"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/closure#R
-
-<http://nationalarchives.gov.uk/dri/catalogue/closure#R> rdf:type :ClosureType ,
-                                                                  owl:NamedIndividual ;
-                                                         
-                                                         rdfs:label "retained by department"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/closure#S
-
-<http://nationalarchives.gov.uk/dri/catalogue/closure#S> rdf:type :ClosureType ,
-                                                                  owl:NamedIndividual ;
-                                                         
-                                                         rdfs:label "retained by department under section 3.4"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/closure#T
-
-<http://nationalarchives.gov.uk/dri/catalogue/closure#T> rdf:type :ClosureType ,
-                                                                  owl:NamedIndividual ;
-                                                         
-                                                         rdfs:label "temporarily retained by department"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/closure#U
-
-<http://nationalarchives.gov.uk/dri/catalogue/closure#U> rdf:type :ClosureType ,
-                                                                  owl:NamedIndividual ;
-                                                         
-                                                         rdfs:label "closed until"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/closure#V
-
-<http://nationalarchives.gov.uk/dri/catalogue/closure#V> rdf:type :ClosureType ,
-                                                                  owl:NamedIndividual ;
-                                                         
-                                                         rdfs:label "closed whilst access is reviewed"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/closure#W
-
-<http://nationalarchives.gov.uk/dri/catalogue/closure#W> rdf:type :ClosureType ,
-                                                                  owl:NamedIndividual ;
-                                                         
-                                                         rdfs:label "reclosed in"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/closure#X
-
-<http://nationalarchives.gov.uk/dri/catalogue/closure#X> rdf:type :ClosureType ,
-                                                                  owl:NamedIndividual ;
-                                                         
-                                                         rdfs:label "unknown/unspecified"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/exportStatus#Completed
-
-<http://nationalarchives.gov.uk/dri/catalogue/exportStatus#Completed> rdf:type :ExportStatus ,
-                                                                               owl:NamedIndividual ;
-                                                                      
-                                                                      rdfs:label "Completed"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/exportStatus#Open
-
-<http://nationalarchives.gov.uk/dri/catalogue/exportStatus#Open> rdf:type :ExportStatus ,
-                                                                          owl:NamedIndividual ;
-                                                                 
-                                                                 rdfs:label "Open"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/exportStatus#Processing
-
-<http://nationalarchives.gov.uk/dri/catalogue/exportStatus#Processing> rdf:type :ExportStatus ,
-                                                                                owl:NamedIndividual ;
-                                                                       
-                                                                       rdfs:label "Processing"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/exportStatus#ReadyToProcess
-
-<http://nationalarchives.gov.uk/dri/catalogue/exportStatus#ReadyToProcess> rdf:type :ExportStatus ,
-                                                                                    owl:NamedIndividual ;
-                                                                           
-                                                                           rdfs:label "Ready to process"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/exportStatus#Secure
-
-<http://nationalarchives.gov.uk/dri/catalogue/exportStatus#Secure> rdf:type :ExportStatus ,
-                                                                            owl:NamedIndividual ;
-                                                                   
-                                                                   rdfs:label "Secure"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/exportStatus#StartProcess
-
-<http://nationalarchives.gov.uk/dri/catalogue/exportStatus#StartProcess> rdf:type :ExportStatus ,
-                                                                                  owl:NamedIndividual ;
-                                                                         
-                                                                         rdfs:label "Start process"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/medium#CD
-
-<http://nationalarchives.gov.uk/dri/catalogue/medium#CD> rdf:type :PhysicalMedia ,
-                                                                  owl:NamedIndividual ;
-                                                         
-                                                         rdfs:label "CD"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/medium#DVD
-
-<http://nationalarchives.gov.uk/dri/catalogue/medium#DVD> rdf:type :PhysicalMedia ,
-                                                                   owl:NamedIndividual ;
-                                                          
-                                                          rdfs:label "DVD"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/medium#FileSystemFolder
-
-<http://nationalarchives.gov.uk/dri/catalogue/medium#FileSystemFolder> rdf:type :ElectronicAssembly ,
-                                                                                owl:NamedIndividual ;
-                                                                       
-                                                                       rdfs:label "File system folder"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/medium#FloppyDisk
-
-<http://nationalarchives.gov.uk/dri/catalogue/medium#FloppyDisk> rdf:type :PhysicalMedia ,
-                                                                          owl:NamedIndividual ;
-                                                                 
-                                                                 rdfs:label "Floppy disk"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/medium#HardDrive
-
-<http://nationalarchives.gov.uk/dri/catalogue/medium#HardDrive> rdf:type :PhysicalMedia ,
-                                                                         owl:NamedIndividual ;
-                                                                
-                                                                rdfs:label "Hard drive"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/medium#PGPZFile
-
-<http://nationalarchives.gov.uk/dri/catalogue/medium#PGPZFile> rdf:type :ElectronicAssembly ,
-                                                                        owl:NamedIndividual ;
-                                                               
-                                                               rdfs:label "PGPZ file"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/medium#PortableNVRAM
-
-<http://nationalarchives.gov.uk/dri/catalogue/medium#PortableNVRAM> rdf:type :ElectronicAssembly ,
-                                                                             owl:NamedIndividual ;
-                                                                    
-                                                                    rdfs:label "Portable NVRAM"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/medium#TARFIle
-
-<http://nationalarchives.gov.uk/dri/catalogue/medium#TARFIle> rdf:type :ElectronicAssembly ,
-                                                                       owl:NamedIndividual ;
-                                                              
-                                                              rdfs:label "TAR file"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/medium#Tape
-
-<http://nationalarchives.gov.uk/dri/catalogue/medium#Tape> rdf:type :PhysicalMedia ,
-                                                                    owl:NamedIndividual ;
-                                                           
-                                                           rdfs:label "Tape"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/medium#TrueCryptVolumeFile
-
-<http://nationalarchives.gov.uk/dri/catalogue/medium#TrueCryptVolumeFile> rdf:type :ElectronicAssembly ,
-                                                                                   owl:NamedIndividual ;
-                                                                          
-                                                                          rdfs:label "TrueCrypt volume file"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/partStatus#Identified
-
-<http://nationalarchives.gov.uk/dri/catalogue/partStatus#Identified> rdf:type :PartStatus ,
-                                                                              owl:NamedIndividual ;
-                                                                     
-                                                                     rdfs:label "Identified"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/partStatus#LoadedHolding
-
-<http://nationalarchives.gov.uk/dri/catalogue/partStatus#LoadedHolding> rdf:type :PartStatus ,
-                                                                                 owl:NamedIndividual ;
-                                                                        
-                                                                        rdfs:label "Loaded Holding"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/partStatus#LoadedHoldingPlusSandbox
-
-<http://nationalarchives.gov.uk/dri/catalogue/partStatus#LoadedHoldingPlusSandbox> rdf:type :PartStatus ,
-                                                                                            owl:NamedIndividual ;
-                                                                                   
-                                                                                   rdfs:label "Loaded Holding + Sandbox"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/partStatus#LoadedPreIngest
-
-<http://nationalarchives.gov.uk/dri/catalogue/partStatus#LoadedPreIngest> rdf:type :PartStatus ,
-                                                                                   owl:NamedIndividual ;
-                                                                          
-                                                                          rdfs:label "Loaded Pre-Ingest"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/partStatus#PreIngestFailed
-
-<http://nationalarchives.gov.uk/dri/catalogue/partStatus#PreIngestFailed> rdf:type :PartStatus ,
-                                                                                   owl:NamedIndividual ;
-                                                                          
-                                                                          rdfs:label "Pre-ingest failed"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/partStatus#PreIngested
-
-<http://nationalarchives.gov.uk/dri/catalogue/partStatus#PreIngested> rdf:type :PartStatus ,
-                                                                               owl:NamedIndividual ;
-                                                                      
-                                                                      rdfs:label "Pre-ingested"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/partStatus#PreIngesting
-
-<http://nationalarchives.gov.uk/dri/catalogue/partStatus#PreIngesting> rdf:type :PartStatus ,
-                                                                                owl:NamedIndividual ;
-                                                                       
-                                                                       rdfs:label "Pre-ingesting"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/transferAssetStatus#DiscoveryFailed
-
-<http://nationalarchives.gov.uk/dri/catalogue/transferAssetStatus#DiscoveryFailed> rdf:type :TransferAssetStatus ,
-                                                                                            owl:NamedIndividual ;
-                                                                                   
-                                                                                   rdfs:label "Discovery failed"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/transferAssetStatus#DiscoveryProcessed
-
-<http://nationalarchives.gov.uk/dri/catalogue/transferAssetStatus#DiscoveryProcessed> rdf:type :TransferAssetStatus ,
-                                                                                               owl:NamedIndividual ;
-                                                                                      
-                                                                                      rdfs:label "Discovery processed"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/transferAssetStatus#ReceivedError
-
-<http://nationalarchives.gov.uk/dri/catalogue/transferAssetStatus#ReceivedError> rdf:type :TransferAssetStatus ,
-                                                                                          owl:NamedIndividual ;
-                                                                                 
-                                                                                 rdfs:label "Received error"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/transferAssetStatus#SendError
-
-<http://nationalarchives.gov.uk/dri/catalogue/transferAssetStatus#SendError> rdf:type :TransferAssetStatus ,
-                                                                                      owl:NamedIndividual ;
-                                                                             
-                                                                             rdfs:label "Send error"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/transferAssetStatus#Sending
-
-<http://nationalarchives.gov.uk/dri/catalogue/transferAssetStatus#Sending> rdf:type :TransferAssetStatus ,
-                                                                                    owl:NamedIndividual ;
-                                                                           
-                                                                           rdfs:label "Sending"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/transferAssetStatus#Sent
-
-<http://nationalarchives.gov.uk/dri/catalogue/transferAssetStatus#Sent> rdf:type :TransferAssetStatus ,
-                                                                                 owl:NamedIndividual ;
-                                                                        
-                                                                        rdfs:label "Sent"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/transferStatus#Completed
-
-<http://nationalarchives.gov.uk/dri/catalogue/transferStatus#Completed> rdf:type :TransferStatus ,
-                                                                                 owl:NamedIndividual ;
-                                                                        
-                                                                        rdfs:label "Completed"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/transferStatus#Failed
-
-<http://nationalarchives.gov.uk/dri/catalogue/transferStatus#Failed> rdf:type :TransferStatus ,
-                                                                              owl:NamedIndividual ;
-                                                                     
-                                                                     rdfs:label "Failed"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/transferStatus#Starting
-
-<http://nationalarchives.gov.uk/dri/catalogue/transferStatus#Starting> rdf:type :TransferStatus ,
-                                                                                owl:NamedIndividual ;
-                                                                       
-                                                                       rdfs:label "Starting"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/transferStatus#Transferring
-
-<http://nationalarchives.gov.uk/dri/catalogue/transferStatus#Transferring> rdf:type :TransferStatus ,
-                                                                                    owl:NamedIndividual ;
-                                                                           
-                                                                           rdfs:label "Transferring"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/transferStatus#Transforming
-
-<http://nationalarchives.gov.uk/dri/catalogue/transferStatus#Transforming> rdf:type :TransferStatus ,
-                                                                                    owl:NamedIndividual ;
-                                                                           
-                                                                           rdfs:label "Transforming"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/transferStatus#Validating
-
-<http://nationalarchives.gov.uk/dri/catalogue/transferStatus#Validating> rdf:type :TransferStatus ,
-                                                                                  owl:NamedIndividual ;
-                                                                         
-                                                                         rdfs:label "Validating"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/transferStatus#ValidatingRules
-
-<http://nationalarchives.gov.uk/dri/catalogue/transferStatus#ValidatingRules> rdf:type :TransferStatus ,
-                                                                                       owl:NamedIndividual ;
-                                                                              
-                                                                              rdfs:label "Validating rules"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/unitStatus#Identified
-
-<http://nationalarchives.gov.uk/dri/catalogue/unitStatus#Identified> rdf:type :UnitStatus ,
-                                                                              owl:NamedIndividual ;
-                                                                     
-                                                                     rdfs:label "Identified"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/unitStatus#Ingested
-
-<http://nationalarchives.gov.uk/dri/catalogue/unitStatus#Ingested> rdf:type :UnitStatus ,
-                                                                            owl:NamedIndividual .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/unitStatus#Loaded
-
-<http://nationalarchives.gov.uk/dri/catalogue/unitStatus#Loaded> rdf:type :UnitStatus ,
-                                                                          owl:NamedIndividual ;
-                                                                 
-                                                                 rdfs:label "Loaded"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/unitStatus#LoadedDarkArchive
-
-<http://nationalarchives.gov.uk/dri/catalogue/unitStatus#LoadedDarkArchive> rdf:type :UnitStatus ,
-                                                                                     owl:NamedIndividual ;
-                                                                            
-                                                                            rdfs:label "Loaded Dark Archive"^^xsd:string ;
-                                                                            
-                                                                            rdfs:comment "Loaded directly into the dark archive without DRI"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/unitStatus#PreIngestFailed
-
-<http://nationalarchives.gov.uk/dri/catalogue/unitStatus#PreIngestFailed> rdf:type :UnitStatus ,
-                                                                                   owl:NamedIndividual ;
-                                                                          
-                                                                          rdfs:label "Pre-ingest failed"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/unitStatus#PreIngested
-
-<http://nationalarchives.gov.uk/dri/catalogue/unitStatus#PreIngested> rdf:type :UnitStatus ,
-                                                                               owl:NamedIndividual ;
-                                                                      
-                                                                      rdfs:label "Pre-ingested"^^xsd:string .
-
-
-
-###  http://nationalarchives.gov.uk/dri/catalogue/unitStatus#PreIngesting
-
-<http://nationalarchives.gov.uk/dri/catalogue/unitStatus#PreIngesting> rdf:type :UnitStatus ,
-                                                                                owl:NamedIndividual ;
-                                                                       
-                                                                       rdfs:label "Pre-ingesting"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/23
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/23> rdf:type :ExemptionCode ,
-                                                                     owl:NamedIndividual ;
-                                                            
-                                                            rdfs:label "23"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/24
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/24> rdf:type :ExemptionCode ,
-                                                                     owl:NamedIndividual ;
-                                                            
-                                                            rdfs:label "24"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/26
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/26> rdf:type :ExemptionCode ,
-                                                                     owl:NamedIndividual ;
-                                                            
-                                                            rdfs:label "26"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/27/1
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/27/1> rdf:type :ExemptionCode ,
-                                                                       owl:NamedIndividual ;
-                                                              
-                                                              rdfs:label "27(1)"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/27/2
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/27/2> rdf:type :ExemptionCode ,
-                                                                       owl:NamedIndividual ;
-                                                              
-                                                              rdfs:label "27(2)"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/28
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/28> rdf:type :ExemptionCode ,
-                                                                     owl:NamedIndividual ;
-                                                            
-                                                            rdfs:label "28"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/29
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/29> rdf:type :ExemptionCode ,
-                                                                     owl:NamedIndividual ;
-                                                            
-                                                            rdfs:label "29"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/30/1
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/30/1> rdf:type :ExemptionCode ,
-                                                                       owl:NamedIndividual ;
-                                                              
-                                                              rdfs:label "30(1)"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/30/2
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/30/2> rdf:type :ExemptionCode ,
-                                                                       owl:NamedIndividual ;
-                                                              
-                                                              rdfs:label "30(2)"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/31
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/31> rdf:type :ExemptionCode ,
-                                                                     owl:NamedIndividual ;
-                                                            
-                                                            rdfs:label "31"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/32
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/32> rdf:type :ExemptionCode ,
-                                                                     owl:NamedIndividual ;
-                                                            
-                                                            rdfs:label "32"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/33
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/33> rdf:type :ExemptionCode ,
-                                                                     owl:NamedIndividual ;
-                                                            
-                                                            rdfs:label "33"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/34
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/34> rdf:type :ExemptionCode ,
-                                                                     owl:NamedIndividual ;
-                                                            
-                                                            rdfs:label "34"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/35/1/a
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/35/1/a> rdf:type :ExemptionCode ,
-                                                                         owl:NamedIndividual ;
-                                                                
-                                                                rdfs:label "35(1)(a)"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/35/1/b
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/35/1/b> rdf:type :ExemptionCode ,
-                                                                         owl:NamedIndividual ;
-                                                                
-                                                                rdfs:label "35(1)(b)"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/35/1/c
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/35/1/c> rdf:type :ExemptionCode ,
-                                                                         owl:NamedIndividual ;
-                                                                
-                                                                rdfs:label "35(1)(c)"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/35/1/d
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/35/1/d> rdf:type :ExemptionCode ,
-                                                                         owl:NamedIndividual ;
-                                                                
-                                                                rdfs:label "35(1)(d)"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/36
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/36> rdf:type :ExemptionCode ,
-                                                                     owl:NamedIndividual ;
-                                                            
-                                                            rdfs:label "36"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/37/1/a
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/37/1/a> rdf:type :ExemptionCode ,
-                                                                         owl:NamedIndividual ;
-                                                                
-                                                                rdfs:label "37(1)(a)"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/37/1/aa
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/37/1/aa> rdf:type :ExemptionCode ,
-                                                                          owl:NamedIndividual ;
-                                                                 
-                                                                 rdfs:label "37(1)(aa)"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/37/1/ac
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/37/1/ac> rdf:type :ExemptionCode ,
-                                                                          owl:NamedIndividual ;
-                                                                 
-                                                                 rdfs:label "37(1)(ac)"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/37/1/ad
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/37/1/ad> rdf:type :ExemptionCode ,
-                                                                          owl:NamedIndividual ;
-                                                                 
-                                                                 rdfs:label "37(1)(ad)"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/37/1/b
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/37/1/b> rdf:type :ExemptionCode ,
-                                                                         owl:NamedIndividual ;
-                                                                
-                                                                rdfs:label "37(1)(b)"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/37/1/a/old
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/37/1/a/old> rdf:type :ExemptionCode ,
-                                                                             owl:NamedIndividual ;
-                                                                    
-                                                                    rdfs:label "37(1)(a)old"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/38
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/38> rdf:type :ExemptionCode ,
-                                                                     owl:NamedIndividual ;
-                                                            
-                                                            rdfs:label "38"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/39
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/39> rdf:type :ExemptionCode ,
-                                                                     owl:NamedIndividual ;
-                                                            
-                                                            rdfs:label "39"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/40/2
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/40/2> rdf:type :ExemptionCode ,
-                                                                       owl:NamedIndividual ;
-                                                              
-                                                              rdfs:label "40(2)"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/41
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/41> rdf:type :ExemptionCode ,
-                                                                     owl:NamedIndividual ;
-                                                            
-                                                            rdfs:label "41"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/42
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/42> rdf:type :ExemptionCode ,
-                                                                     owl:NamedIndividual ;
-                                                            
-                                                            rdfs:label "42"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/43
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/43> rdf:type :ExemptionCode ,
-                                                                     owl:NamedIndividual ;
-                                                            
-                                                            rdfs:label "43"^^xsd:string .
-                                                            
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/43/1
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/43/1> rdf:type :ExemptionCode ,
-                                                                    owl:NamedIndividual ;
-rdfs:label "43(1)"^^xsd:string .
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/43/2
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/43/2> rdf:type :ExemptionCode ,
-                                                                    owl:NamedIndividual ;
-rdfs:label "43(2)"^^xsd:string .
-
-
-
-###  http://www.legislation.gov.uk/id/ukpga/2000/36/section/44
-
-<http://www.legislation.gov.uk/id/ukpga/2000/36/section/44> rdf:type :ExemptionCode ,
-                                                                     owl:NamedIndividual ;
-                                                            
-                                                            rdfs:label "44"^^xsd:string .
-
-
-
-
-###  Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net
-
+<http://datagov.nationalarchives.gov.uk/Welsh_Assembly_Government>
+  a central-government:DevolvedGovernment ;
+  rdfs:label "Welsh Assembly Government" ;
+.
+<http://datagov.nationalarchives.gov.uk/resource/Al-Sweady_Inquiry>
+  a central-government:TribunalNDPB ;
+  rdfs:label "Al-Sweady Inquiry" ;
+  owl:sameAs <http://dbpedia.org/resource/Al-Sweady_Inquiry> ;
+.
+<http://datagov.nationalarchives.gov.uk/resource/Insolvency_Service>
+  a central-government:ExecutiveAgency ;
+  rdfs:label "Insolvency Service" ;
+  owl:sameAs <http://dbpedia.org/resource/Insolvency_Service> ;
+.
+<http://datagov.nationalarchives.gov.uk/resource/Leveson_Inquiry>
+  a central-government:TribunalNDPB ;
+  rdfs:label "Leveson Inquiry" ;
+  owl:sameAs <http://dbpedia.org/resource/Leveson_Inquiry> ;
+.
+<http://datagov.nationalarchives.gov.uk/resource/London_Organising_Committee_of_the_Olympic_and_Paralympic_Games>
+  a <http://dbpedia.org/resource/Private_company_limited_by_guarantee> ;
+  rdfs:label "London Organising Committee of the Olympic and Paralympic Games" ;
+  owl:sameAs <http://dbpedia.org/resource/London_Organising_Committee_of_the_Olympic_and_Paralympic_Games> ;
+.
+<http://datagov.nationalarchives.gov.uk/resource/Millenium_Commission>
+  a central-government:NonDepartmentalPublicBody ;
+  rdfs:comment "Millenium Commission" ;
+  owl:sameAs <http://dbpedia.org/resource/Millenium_Commission> ;
+.
+<http://datagov.nationalarchives.gov.uk/resource/Ministry_of_Defence_(United_Kingdom)>
+  a central-government:MinisterialDepartment ;
+  rdfs:label "Ministry of Defence (United Kingdom)" ;
+  owl:sameAs <http://dbpedia.org/resource/Ministry_of_Defence_(United_Kingdom)> ;
+.
+<http://datagov.nationalarchives.gov.uk/resource/War_Office>
+  a central-government:Department ;
+  rdfs:label "War Office" ;
+  owl:sameAs <http://dbpedia.org/resource/War_Office> ;
+.
+<http://dbpedia.org/resource/Al-Sweady_Inquiry>
+  rdfs:label "Al-Sweady Inquiry" ;
+.
+<http://dbpedia.org/resource/Insolvency_Service>
+  rdfs:label "Insolvency Service" ;
+.
+<http://dbpedia.org/resource/Leveson_Inquiry>
+  rdfs:label "Leveson Inquiry" ;
+.
+<http://dbpedia.org/resource/London_Organising_Committee_of_the_Olympic_and_Paralympic_Games>
+  rdfs:label "London Organising Committee of the Olympic and Paralympic Games" ;
+.
+<http://dbpedia.org/resource/Millenium_Commission>
+  rdfs:label "Millenium Commission" ;
+.
+<http://dbpedia.org/resource/Ministry_of_Defence_(United_Kingdom)>
+  rdfs:label "Ministry of Defence (United Kingdom)" ;
+.
+<http://dbpedia.org/resource/Private_company_limited_by_guarantee>
+  a owl:Class ;
+  rdfs:label "Private  company limited by guarantee" ;
+  rdfs:subClassOf <http://www.w3.org/ns/org#FormalOrganization> ;
+.
+<http://dbpedia.org/resource/War_Office>
+  rdfs:label "War Office" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/batchStatus#IngestFailed>
+  a dri:BatchStatus ;
+  rdfs:label "Ingest Failed" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/batchStatus#Ingested>
+  a dri:BatchStatus ;
+  rdfs:label "Ingested" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/batchStatus#Ingesting>
+  a dri:BatchStatus ;
+  rdfs:label "Ingesting" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/batchStatus#LoadedPreIngest>
+  a dri:BatchStatus ;
+  rdfs:label "Loaded Pre-ingest" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/batchStatus#PreIngestFailed>
+  a dri:BatchStatus ;
+  rdfs:label "Pre-ingest Failed" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/batchStatus#PreIngested>
+  a dri:BatchStatus ;
+  rdfs:label "Pre-ingested" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/batchStatus#PreIngestedCopied>
+  a dri:BatchStatus ;
+  rdfs:label "Pre-ingested copied" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/batchStatus#PreIngestedCopying>
+  a dri:BatchStatus ;
+  rdfs:label "Pre-ingested Copying" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/batchStatus#PreIngesting>
+  a dri:BatchStatus ;
+  rdfs:label "Pre-ingesting" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#A>
+  a dri:ClosureType ;
+  rdfs:label "open on transfer" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#C>
+  a dri:ClosureType ;
+  rdfs:label "closed, for review in" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#D>
+  a dri:ClosureType ;
+  rdfs:label "retained until" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#F>
+  a dri:ClosureType ;
+  rdfs:label "closed for" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#I>
+  a dri:ClosureType ;
+  rdfs:label "open immediately" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#N>
+  a dri:ClosureType ;
+  rdfs:label "normal closure" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#R>
+  a dri:ClosureType ;
+  rdfs:label "retained by department" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#S>
+  a dri:ClosureType ;
+  rdfs:label "retained by department under section 3.4" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#T>
+  a dri:ClosureType ;
+  rdfs:label "temporarily retained by department" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#U>
+  a dri:ClosureType ;
+  rdfs:label "closed until" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#V>
+  a dri:ClosureType ;
+  rdfs:label "closed whilst access is reviewed" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#W>
+  a dri:ClosureType ;
+  rdfs:label "reclosed in" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#X>
+  a dri:ClosureType ;
+  rdfs:label "unknown/unspecified" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/exportStatus#Completed>
+  a dri:ExportStatus ;
+  rdfs:label "Completed" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/exportStatus#Open>
+  a dri:ExportStatus ;
+  rdfs:label "Open" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/exportStatus#Processing>
+  a dri:ExportStatus ;
+  rdfs:label "Processing" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/exportStatus#ReadyToProcess>
+  a dri:ExportStatus ;
+  rdfs:label "Ready to process" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/exportStatus#Secure>
+  a dri:ExportStatus ;
+  rdfs:label "Secure" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/exportStatus#StartProcess>
+  a dri:ExportStatus ;
+  rdfs:label "Start process" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/medium#CD>
+  a dri:PhysicalMedia ;
+  rdfs:label "CD" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/medium#DVD>
+  a dri:PhysicalMedia ;
+  rdfs:label "DVD" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/medium#FileSystemFolder>
+  a dri:ElectronicAssembly ;
+  rdfs:label "File system folder" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/medium#FloppyDisk>
+  a dri:PhysicalMedia ;
+  rdfs:label "Floppy disk" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/medium#HardDrive>
+  a dri:PhysicalMedia ;
+  rdfs:label "Hard drive" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/medium#PGPZFile>
+  a dri:ElectronicAssembly ;
+  rdfs:label "PGPZ file" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/medium#PortableNVRAM>
+  a dri:ElectronicAssembly ;
+  rdfs:label "Portable NVRAM" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/medium#TARFIle>
+  a dri:ElectronicAssembly ;
+  rdfs:label "TAR file" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/medium#Tape>
+  a dri:PhysicalMedia ;
+  rdfs:label "Tape" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/medium#TrueCryptVolumeFile>
+  a dri:ElectronicAssembly ;
+  rdfs:label "TrueCrypt volume file" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#Identified>
+  a dri:PartStatus ;
+  rdfs:label "Identified" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#IngestFailed>
+  a dri:PartStatus ;
+  rdfs:label "Ingest Failed" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#Ingested>
+  a dri:PartStatus ;
+  rdfs:label "Ingested" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#Ingesting>
+  a dri:PartStatus ;
+  rdfs:label "Ingesting" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#LoadedDarkArchive>
+  a dri:PartStatus ;
+  rdfs:label "Loaded Dark Archive" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#LoadedHolding>
+  a dri:PartStatus ;
+  rdfs:label "Loaded Holding" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#LoadedHoldingPlusSandbox>
+  a dri:PartStatus ;
+  rdfs:label "Loaded Holding + Sandbox" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#LoadedPreIngest>
+  a dri:PartStatus ;
+  rdfs:label "Loaded Pre-Ingest" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#PreIngestFailed>
+  a dri:PartStatus ;
+  rdfs:label "Pre-ingest failed" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#PreIngested>
+  a dri:PartStatus ;
+  rdfs:label "Pre-ingested" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#PreIngestedCopied>
+  a dri:PartStatus ;
+  rdfs:label "Pre-ingested Copied" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#PreIngestedCopying>
+  a dri:PartStatus ;
+  rdfs:label "Pre-ingested Copying" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#PreIngesting>
+  a dri:PartStatus ;
+  rdfs:label "Pre-ingesting" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferAssetStatus#DiscoveryFailed>
+  a dri:TransferAssetStatus ;
+  rdfs:label "Discovery failed" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferAssetStatus#DiscoveryProcessed>
+  a dri:TransferAssetStatus ;
+  rdfs:label "Discovery processed" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferAssetStatus#ReceivedError>
+  a dri:TransferAssetStatus ;
+  rdfs:label "Received error" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferAssetStatus#SendError>
+  a dri:TransferAssetStatus ;
+  rdfs:label "Send error" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferAssetStatus#Sending>
+  a dri:TransferAssetStatus ;
+  rdfs:label "Sending" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferAssetStatus#Sent>
+  a dri:TransferAssetStatus ;
+  rdfs:label "Sent" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferStatus#Completed>
+  a dri:TransferStatus ;
+  rdfs:label "Completed" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferStatus#Failed>
+  a dri:TransferStatus ;
+  rdfs:label "Failed" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferStatus#Starting>
+  a dri:TransferStatus ;
+  rdfs:label "Starting" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferStatus#Transferring>
+  a dri:TransferStatus ;
+  rdfs:label "Transferring" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferStatus#Transforming>
+  a dri:TransferStatus ;
+  rdfs:label "Transforming" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferStatus#Validating>
+  a dri:TransferStatus ;
+  rdfs:label "Validating" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferStatus#ValidatingRules>
+  a dri:TransferStatus ;
+  rdfs:label "Validating rules" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/unitStatus#Identified>
+  a dri:UnitStatus ;
+  rdfs:label "Identified" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/unitStatus#IngestFailed>
+  a dri:UnitStatus ;
+  rdfs:label "Ingest Failed" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/unitStatus#Ingested>
+  a dri:UnitStatus ;
+  rdfs:label "Ingested" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/unitStatus#Ingesting>
+  a dri:UnitStatus ;
+  rdfs:label "Ingesting" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/unitStatus#Loaded>
+  a dri:UnitStatus ;
+  rdfs:label "Loaded" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/unitStatus#LoadedDarkArchive>
+  a dri:UnitStatus ;
+  rdfs:comment "Loaded directly into the dark archive without DRI" ;
+  rdfs:label "Loaded Dark Archive" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/unitStatus#PreIngestFailed>
+  a dri:UnitStatus ;
+  rdfs:label "Pre-ingest failed" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/unitStatus#PreIngested>
+  a dri:UnitStatus ;
+  rdfs:label "Pre-ingested" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/unitStatus#PreIngesting>
+  a dri:UnitStatus ;
+  rdfs:label "Pre-ingesting" ;
+.
+<http://nationalarchives.gov.uk/terms/dri>
+  a owl:Ontology ;
+  owl:versionIRI <http://nationalarchives.gov.uk/terms/dri/4.0> ;
+.
+dri:Accumulation
+  a owl:Class ;
+  rdfs:label "Accumulation" ;
+.
+dri:Batch
+  a owl:Class ;
+  rdfs:label "Batch" ;
+.
+dri:BatchStatus
+  a owl:Class ;
+  rdfs:label "Batch status" ;
+  rdfs:subClassOf owl:Thing ;
+.
+dri:BornDigitalCollection
+  a owl:Class ;
+  rdfs:label "Born-digital collection" ;
+  rdfs:subClassOf dri:Collection ;
+.
+dri:Closure
+  a owl:Class ;
+  rdfs:label "Closure" ;
+.
+dri:ClosureType
+  a owl:Class ;
+  rdfs:label "Closure type" ;
+.
+dri:Collection
+  a owl:Class ;
+  rdfs:label "Collection" ;
+.
+dri:DeliverableUnit
+  a owl:Class ;
+  rdfs:label "Deliverable unit" ;
+  rdfs:subClassOf dri:Item ;
+.
+dri:Delivery
+  a owl:Class ;
+  rdfs:label "Delivery" ;
+.
+dri:DigitisedRecordCollection
+  a owl:Class ;
+  rdfs:label "Digitised record collection" ;
+  rdfs:subClassOf dri:Collection ;
+.
+dri:DigitisedSurrogateCollection
+  a owl:Class ;
+  rdfs:label "Digitised surrogate collection" ;
+  rdfs:subClassOf dri:Collection ;
+.
+dri:Directory
+  a owl:Class ;
+  rdfs:label "Directory" ;
+  rdfs:subClassOf dri:Resource ;
+.
+dri:DiscoveryItem
+  a owl:Class ;
+  rdfs:label "Discovery Item" ;
+.
+dri:ElectronicAssembly
+  a owl:Class ;
+  rdfs:label "Electronic Assembly" ;
+  rdfs:subClassOf dri:Medium ;
+.
+dri:Exceptionlist
+  a owl:Class ;
+  rdfs:label "Exceptionlist" ;
+.
+dri:ExemptionCode
+  a owl:Class ;
+  rdfs:label "FOI exemption code" ;
+.
+dri:Export
+  a owl:Class ;
+  rdfs:label "Export" ;
+.
+dri:ExportStatus
+  a owl:Class ;
+  rdfs:label "Export status" ;
+.
+dri:File
+  a owl:Class ;
+  rdfs:label "File" ;
+  rdfs:subClassOf dri:Resource ;
+.
+dri:Item
+  a owl:Class ;
+  rdfs:label "Item" ;
+.
+dri:LiteralMap
+  a owl:Class ;
+  rdfs:label "Literal map" ;
+  rdfs:subClassOf dri:Map ;
+.
+dri:Manifestation
+  a owl:Class ;
+  rdfs:label "Manifestation" ;
+  rdfs:subClassOf dri:Item ;
+.
+dri:Map
+  a owl:Class ;
+  rdfs:label "Map" ;
+.
+dri:MapEntry
+  a owl:Class ;
+  rdfs:label "Map entry" ;
+.
+dri:Medium
+  a owl:Class ;
+  rdfs:label "Medium" ;
+  rdfs:subClassOf dct:MediaType ;
+.
+dri:PaperManifestation
+  a owl:Class ;
+  rdfs:label "Paper manifestation" ;
+  rdfs:subClassOf dri:Manifestation ;
+.
+dri:Part
+  a owl:Class ;
+  rdfs:label "Part" ;
+.
+dri:PartStatus
+  a owl:Class ;
+  rdfs:label "Part status" ;
+.
+dri:PhysicalMedia
+  a owl:Class ;
+  rdfs:label "Physical Media" ;
+  rdfs:subClassOf dri:Medium ;
+.
+dri:PresentationManifestation
+  a owl:Class ;
+  rdfs:label "Presentation manifestation" ;
+  rdfs:subClassOf dri:Manifestation ;
+.
+dri:PreservationManifestation
+  a owl:Class ;
+  rdfs:label "Preservation manifestation" ;
+  rdfs:subClassOf dri:Manifestation ;
+.
+dri:RecordList
+  a owl:Class ;
+  rdfs:label "Record list" ;
+.
+dri:Resource
+  a owl:Class ;
+  rdfs:label "Resource" ;
+.
+dri:ResourceMap
+  a owl:Class ;
+  rdfs:label "Resource map" ;
+  rdfs:subClassOf dri:Map ;
+.
+dri:SchemaMapping
+  a owl:Class ;
+  rdfs:label "SchemaMapping" ;
+.
+dri:Series
+  a owl:Class ;
+  rdfs:label "Series" ;
+.
+dri:Transfer
+  a owl:Class ;
+  rdfs:label "Transfer" ;
+.
+dri:TransferAgreement
+  a owl:Class ;
+  rdfs:label "Transfer agreement" ;
+.
+dri:TransferAsset
+  a owl:Class ;
+  rdfs:label "Transfer asset" ;
+.
+dri:TransferAssetStatus
+  a owl:Class ;
+  rdfs:label "Transfer asset status" ;
+.
+dri:TransferConfig
+  a owl:Class ;
+  rdfs:label "TransferConfig" ;
+.
+dri:TransferStatus
+  a owl:Class ;
+  rdfs:label "Transfer status" ;
+.
+dri:Unit
+  a owl:Class ;
+  rdfs:label "Unit" ;
+.
+dri:UnitStatus
+  a owl:Class ;
+  rdfs:label "Unit status" ;
+.
+dri:Whitelist
+  a owl:Class ;
+  rdfs:label "Whitelist" ;
+.
+dri:XsltConfig
+  a owl:Class ;
+  rdfs:label "XsltConfig" ;
+.
+dri:XsltParameter
+  a owl:Class ;
+  rdfs:label "XsltParameter" ;
+.
+dri:accumulation
+  a owl:ObjectProperty ;
+  rdfs:domain dri:TransferAgreement ;
+  rdfs:label "accumulation" ;
+  rdfs:range dri:Accumulation ;
+.
+dri:batch
+  a owl:ObjectProperty ;
+  rdfs:domain dri:DeliverableUnit ;
+  rdfs:domain dri:PreservationManifestation ;
+  rdfs:label "batch" ;
+  rdfs:range dri:Batch ;
+.
+dri:batchStatus
+  a owl:ObjectProperty ;
+  rdfs:domain dri:Batch ;
+  rdfs:label "Batch Status" ;
+  rdfs:range dri:BatchStatus ;
+.
+dri:canTransferToDiscovery
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:Series ;
+  rdfs:label "can transfer to Discovery" ;
+  rdfs:range xsd:boolean ;
+.
+dri:checksum
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:ElectronicAssembly ;
+  rdfs:label "checksum" ;
+  rdfs:range xsd:string ;
+.
+dri:closure
+  a owl:ObjectProperty ;
+  rdfs:domain dri:DeliverableUnit ;
+  rdfs:domain dri:File ;
+  rdfs:label "closure" ;
+  rdfs:range dri:Closure ;
+.
+dri:closurePeriod
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:Closure ;
+  rdfs:label "closure period" ;
+  rdfs:range xsd:decimal ;
+.
+dri:closureType
+  a owl:ObjectProperty ;
+  rdfs:domain dri:Closure ;
+  rdfs:label "closure type" ;
+  rdfs:range dri:ClosureType ;
+.
+dri:counter
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:MapEntry ;
+  rdfs:domain dri:Series ;
+  rdfs:label "counter" ;
+  rdfs:range xsd:integer ;
+.
+dri:creatingBody
+  a owl:ObjectProperty ;
+  rdfs:domain dri:TransferAgreement ;
+  rdfs:label "creating body" ;
+  rdfs:range <http://www.w3.org/ns/org#FormalOrganization> ;
+.
+dri:curatedLabel
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:Directory ;
+  rdfs:label "curated Label" ;
+  rdfs:range xsd:string ;
+.
+dri:descriptionStatus
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:Closure ;
+  rdfs:label "description status" ;
+  rdfs:range xsd:decimal ;
+.
+dri:directory
+  a owl:ObjectProperty ;
+  rdfs:domain dri:Resource ;
+  rdfs:label "directory" ;
+  rdfs:range dri:Directory ;
+.
+dri:documentStatus
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:Closure ;
+  rdfs:label "document status" ;
+  rdfs:range xsd:decimal ;
+.
+dri:exemptionAsserted
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:Closure ;
+  rdfs:label "FOI exemption asserted" ;
+  rdfs:range xsd:integer ;
+.
+dri:exemptionCode
+  a owl:ObjectProperty ;
+  rdfs:domain dri:Closure ;
+  rdfs:label "FOI exemption  code" ;
+  rdfs:range dri:ExemptionCode ;
+.
+dri:exportMember
+  a owl:ObjectProperty ;
+  rdfs:domain dri:Export ;
+  rdfs:label "export member" ;
+  rdfs:range dri:Item ;
+  rdfs:range dri:Resource ;
+  rdfs:subPropertyOf rdfs:member ;
+.
+dri:exportStatus
+  a owl:ObjectProperty ;
+  rdfs:domain dri:Export ;
+  rdfs:label "export status" ;
+  rdfs:range dri:ExportStatus ;
+.
+dri:file
+  a owl:ObjectProperty ;
+  rdfs:domain dri:Manifestation ;
+  rdfs:label "file" ;
+  rdfs:range dri:File ;
+.
+dri:fileAsDeliverableUnit
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:Series ;
+  rdfs:label "file as deliverable unit" ;
+  rdfs:range xsd:boolean ;
+.
+dri:fileName
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:XsltConfig ;
+  rdfs:label "file Name" ;
+  rdfs:range xsd:string ;
+.
+dri:formerReferenceDepartment
+  a owl:DatatypeProperty ;
+  rdfs:label "former reference department" ;
+  rdfs:range xsd:string ;
+.
+dri:former_reference_TNA
+  a owl:DatatypeProperty ;
+  rdfs:label "former reference TNA" ;
+  rdfs:range xsd:string ;
+.
+dri:hasDirectory
+  a owl:ObjectProperty ;
+  rdfs:domain dri:DeliverableUnit ;
+  rdfs:label "has Directory" ;
+  rdfs:range dri:Directory ;
+.
+dri:hasEntry
+  a owl:ObjectProperty ;
+  rdfs:domain dri:Map ;
+  rdfs:label "has entry" ;
+  rdfs:range dri:MapEntry ;
+.
+dri:hasFileIdentifier
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:Exceptionlist ;
+  rdfs:label "hasFileIdentifier" ;
+  rdfs:range xsd:string ;
+.
+dri:hasSchema
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:Series ;
+  rdfs:label "has schema" ;
+  rdfs:range xsd:string ;
+.
+dri:isReferencedBy
+  a owl:ObjectProperty ;
+  rdfs:domain dri:TransferAgreement ;
+  rdfs:label "is referenced by" ;
+  rdfs:range dri:Delivery ;
+  rdfs:range dri:Map ;
+.
+dri:key
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:XsltParameter ;
+  rdfs:label "key" ;
+  rdfs:range xsd:string ;
+.
+dri:mapKey
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:MapEntry ;
+  rdfs:label "map key" ;
+  rdfs:range xsd:string ;
+.
+dri:mapValue
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:MapEntry ;
+  rdfs:label "map value" ;
+  rdfs:range xsd:anyURI ;
+  rdfs:range xsd:string ;
+.
+dri:medium
+  a owl:ObjectProperty ;
+  rdfs:domain dri:Unit ;
+  rdfs:label "medium" ;
+  rdfs:range dri:Medium ;
+.
+dri:parent
+  a owl:ObjectProperty ;
+  rdfs:domain dri:Item ;
+  rdfs:label "parent" ;
+  rdfs:range dri:DeliverableUnit ;
+.
+dri:partOfBatch
+  a owl:ObjectProperty ;
+  rdfs:domain dri:Exceptionlist ;
+  rdfs:domain dri:SchemaMapping ;
+  rdfs:label "part Of Batch" ;
+  rdfs:range dri:Batch ;
+.
+dri:partStatus
+  a owl:ObjectProperty ;
+  rdfs:domain dri:Part ;
+  rdfs:label "part status" ;
+  rdfs:range dri:PartStatus ;
+.
+dri:recordListMember
+  a owl:ObjectProperty ;
+  rdfs:domain dri:RecordList ;
+  rdfs:label "record list member" ;
+  rdfs:range dri:DeliverableUnit ;
+  rdfs:range dri:File ;
+.
+dri:schemaName
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:SchemaMapping ;
+  rdfs:label "schemaName" ;
+  rdfs:range xsd:string ;
+.
+dri:startDate
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:Closure ;
+  rdfs:label "startDate" ;
+.
+dri:substituteKey
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:SchemaMapping ;
+  rdfs:label "substituteKey" ;
+  rdfs:range xsd:string ;
+.
+dri:substituteValue
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:SchemaMapping ;
+  rdfs:label "substituteValue" ;
+  rdfs:range xsd:string ;
+.
+dri:titleAlternative
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:Closure ;
+  rdfs:domain dri:Directory ;
+  rdfs:label "titleAlternative" ;
+  rdfs:range xsd:string ;
+.
+dri:titleStatus
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:Closure ;
+  rdfs:label "titleStatus" ;
+  rdfs:range xsd:string ;
+.
+dri:transferAsset
+  a owl:ObjectProperty ;
+  rdfs:domain dri:Transfer ;
+  rdfs:label "transfer asset" ;
+  rdfs:range dri:TransferAsset ;
+.
+dri:transferAssetStatus
+  a owl:ObjectProperty ;
+  rdfs:domain dri:TransferAsset ;
+  rdfs:label "transfer asset status" ;
+  rdfs:range dri:TransferAssetStatus ;
+.
+dri:transferOf
+  a owl:ObjectProperty ;
+  rdfs:domain dri:TransferAgreement ;
+  rdfs:label "transfer of" ;
+  rdfs:range dri:Part ;
+  rdfs:range dri:Series ;
+.
+dri:transferStatus
+  a owl:ObjectProperty ;
+  rdfs:domain dri:Transfer ;
+  rdfs:label "transfer status" ;
+  rdfs:range dri:TransferStatus ;
+.
+dri:transferringBody
+  a owl:ObjectProperty ;
+  rdfs:domain dri:TransferAgreement ;
+  rdfs:label "transferring body" ;
+  rdfs:range <http://www.w3.org/ns/org#FormalOrganization> ;
+.
+dri:unitStatus
+  a owl:ObjectProperty ;
+  rdfs:domain dri:Unit ;
+  rdfs:label "unit status" ;
+  rdfs:range dri:UnitStatus ;
+.
+dri:username
+  a owl:DatatypeProperty ;
+  rdfs:label "username" ;
+  rdfs:range xsd:string ;
+.
+dri:value
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:XsltParameter ;
+  rdfs:label "value" ;
+  rdfs:range xsd:string ;
+.
+dct:MediaType
+  a owl:Class ;
+  rdfs:label "Media type" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/23>
+  a dri:ExemptionCode ;
+  rdfs:label "23" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/24>
+  a dri:ExemptionCode ;
+  rdfs:label "24" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/26>
+  a dri:ExemptionCode ;
+  rdfs:label "26" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/27/1>
+  a dri:ExemptionCode ;
+  rdfs:label "27(1)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/27/2>
+  a dri:ExemptionCode ;
+  rdfs:label "27(2)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/28>
+  a dri:ExemptionCode ;
+  rdfs:label "28" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/29>
+  a dri:ExemptionCode ;
+  rdfs:label "29" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/30/1>
+  a dri:ExemptionCode ;
+  rdfs:label "30(1)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/30/2>
+  a dri:ExemptionCode ;
+  rdfs:label "30(2)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/31>
+  a dri:ExemptionCode ;
+  rdfs:label "31" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/32>
+  a dri:ExemptionCode ;
+  rdfs:label "32" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/33>
+  a dri:ExemptionCode ;
+  rdfs:label "33" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/34>
+  a dri:ExemptionCode ;
+  rdfs:label "34" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/35/1/a>
+  a dri:ExemptionCode ;
+  rdfs:label "35(1)(a)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/35/1/b>
+  a dri:ExemptionCode ;
+  rdfs:label "35(1)(b)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/35/1/c>
+  a dri:ExemptionCode ;
+  rdfs:label "35(1)(c)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/35/1/d>
+  a dri:ExemptionCode ;
+  rdfs:label "35(1)(d)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/36>
+  a dri:ExemptionCode ;
+  rdfs:label "36" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/37/1/a>
+  a dri:ExemptionCode ;
+  rdfs:label "37(1)(a)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/37/1/a/old>
+  a dri:ExemptionCode ;
+  rdfs:label "37(1)(a)old" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/37/1/aa>
+  a dri:ExemptionCode ;
+  rdfs:label "37(1)(aa)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/37/1/ac>
+  a dri:ExemptionCode ;
+  rdfs:label "37(1)(ac)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/37/1/ad>
+  a dri:ExemptionCode ;
+  rdfs:label "37(1)(ad)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/37/1/b>
+  a dri:ExemptionCode ;
+  rdfs:label "37(1)(b)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/38>
+  a dri:ExemptionCode ;
+  rdfs:label "38" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/39>
+  a dri:ExemptionCode ;
+  rdfs:label "39" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/40/2>
+  a dri:ExemptionCode ;
+  rdfs:label "40(2)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/41>
+  a dri:ExemptionCode ;
+  rdfs:label "41" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/42>
+  a dri:ExemptionCode ;
+  rdfs:label "42" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/43>
+  a dri:ExemptionCode ;
+  rdfs:label "43" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/43/1>
+  a dri:ExemptionCode ;
+  rdfs:label "43(1)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/43/2>
+  a dri:ExemptionCode ;
+  rdfs:label "43(2)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/44>
+  a dri:ExemptionCode ;
+  rdfs:label "44" ;
+.
+rdfs:member
+  a owl:ObjectProperty ;
+  rdfs:label "member" ;
+.
+owl:sameAs
+  a owl:ObjectProperty ;
+  rdfs:domain dri:DeliverableUnit ;
+  rdfs:label "same as" ;
+  rdfs:range dri:DiscoveryItem ;
+.
