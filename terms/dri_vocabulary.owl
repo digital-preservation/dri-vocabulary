@@ -835,7 +835,7 @@ dri:titleStatus
   a owl:DatatypeProperty ;
   rdfs:domain dri:Closure ;
   rdfs:label "titleStatus" ;
-  rdfs:range xsd:string ;
+  rdfs:range xsd:decimal ;
 .
 dri:transferAsset
   a owl:ObjectProperty ;
