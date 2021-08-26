@@ -669,7 +669,7 @@ dri:exemptionAsserted
   a owl:DatatypeProperty ;
   rdfs:domain dri:Closure ;
   rdfs:label "FOI exemption asserted" ;
-  rdfs:range xsd:integer ;
+  rdfs:range xsd:dateTime ;
 .
 dri:exemptionCode
   a owl:ObjectProperty ;
