@@ -1031,3 +1031,50 @@ owl:sameAs
   rdfs:label "same as" ;
   rdfs:range dri:DiscoveryItem ;
 .
+
+dri:XsltTransform
+  a owl:Class ;
+  rdfs:label "XsltTransform" ;
+.
+
+dri:template
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:xsltTransform ;
+  rdfs:label "Template" ;
+  rdfs:range xsd:string ;
+.
+
+dri:parentId
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:xsltTransform ;
+  rdfs:label "Parent Id" ;
+  rdfs:range xsd:string ;
+.
+
+dri:pieces
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:xsltTransform ;
+  rdfs:label "Pieces" ;
+  rdfs:range xsd:string ;
+.
+
+dri:directory
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:xsltTransform ;
+  rdfs:label "Directory" ;
+  rdfs:range xsd:string ;
+.
+
+dri:recordOpeningDate
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:xsltTransform ;
+  rdfs:label "Record Opening Date" ;
+  rdfs:range xsd:dateTime ;
+.
+
+dri:ordinal
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:xsltTransform ;
+  rdfs:label "Ordinal" ;
+  rdfs:range xsd:integer ;
+.
