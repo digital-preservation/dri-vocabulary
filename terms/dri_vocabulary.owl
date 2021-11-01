@@ -1,4 +1,5 @@
 # baseURI: http://nationalarchives.gov.uk/terms/dri
+# imports: https://www.w3.org/ns/prov.ttl
 # prefix: dri
 
 @prefix central-government: <http://reference.data.gov.uk/def/central-government/> .
@@ -76,6 +77,102 @@
 .
 <http://dbpedia.org/resource/War_Office>
   rdfs:label "War Office" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/043dee8b-afca-44c3-affb-6eabcaf4366e>
+  a prov:Activity ;
+  rdfs:label "Closing an open record" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/1772f5ca-87a7-425b-9445-34eaf0083290>
+  a prov:Activity ;
+  rdfs:label "Correction" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/2b5a8e28-f6ea-40ec-ad65-ca91bda8ccf2>
+  a prov:Activity ;
+  rdfs:label "Opening date later after FOI review" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/3fe3c78c-5514-4e82-949e-1b88d6120f90>
+  a prov:Activity ;
+  rdfs:label "Ingest Closure" ;
+  prov:wasAssociatedWith <http://nationalarchives.gov.uk/dri/catalogue/agent/6446ea1e-0585-4628-86e4-d37f2fa8b067> ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/47bbcf0c-384a-4bfe-a92f-1db791758e24>
+  a prov:Activity ;
+  rdfs:label "Opening date earlier after FOI review" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/4954be50-8583-4aa1-b0d0-1a8d80b43329>
+  a prov:Activity ;
+  rdfs:label "Birth+marriage certificate record opening earlier" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/5868b566-b3f7-49e5-976e-42bae9e2bb59>
+  a prov:Activity ;
+  rdfs:label "Legacy: opening date later to match SAR" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/5c7f0f1c-c9d0-4942-95c1-3463f63018a4>
+  a prov:Activity ;
+  rdfs:label "Record opened after review" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/8583dcb1-9465-4f72-86fd-c73bbf1be916>
+  a prov:Activity ;
+  rdfs:label "Legacy: record opened to match SAR" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/858b8791-80ee-453d-b0d5-70be693dd61e>
+  a prov:Activity ;
+  rdfs:label "Sparql cleanup activity" ;
+  prov:wasAssociatedWith <http://nationalarchives.gov.uk/dri/catalogue/agent/96241858-00bb-4861-8857-4bfabc29d1d2> ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/924785a0-6275-4a6e-89ed-f011ae8fdebe>
+  a prov:Activity ;
+  rdfs:label "Closure Update" ;
+  prov:wasAssociatedWith <http://nationalarchives.gov.uk/dri/catalogue/agent/a007a007-a007-a007-a007-a007a007a007> ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/95760c91-0aad-41f5-a54e-ae8b0531ed82>
+  a prov:Activity ;
+  rdfs:label "Death+marriage certificate record opening" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/9db26ba4-2058-4fea-8c8f-0fc527f8bd24>
+  a prov:Activity ;
+  rdfs:label "Opened on export" ;
+  prov:wasAssociatedWith <http://nationalarchives.gov.uk/dri/catalogue/agent/92749479-ef49-4907-b15c-bb82cf3ee1fb> ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/9ff9605a-14ec-4be8-8396-316aded86334>
+  a prov:Activity ;
+  rdfs:label "Birth+marriage certificate record opening" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/a7d669c4-e3a0-4f0e-95aa-dc8cef8ef8cf>
+  a prov:Activity ;
+  rdfs:label "Opening a closed title or description" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/a823ba2d-7eff-455d-951f-e48b28e966a6>
+  a prov:Activity ;
+  rdfs:label "Closing an open title or description" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/b674f54c-f0fb-11ea-adc1-0242ac120002>
+  a prov:Activity ;
+  rdfs:label "Birth+marriage certificate record opening later" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/bb2194d1-3c4e-4ea1-8a53-2d99b16311a9>
+  a prov:Activity ;
+  rdfs:label "FOI code amended after review" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/f0c76bc6-1f56-44d1-bb02-d2cea8a1994e>
+  a prov:Activity ;
+  rdfs:label "Legacy: opening date earlier to match SAR" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/agent/6446ea1e-0585-4628-86e4-d37f2fa8b067>
+  a prov:Agent ;
+  rdfs:label "Preservica Ingester" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/agent/92749479-ef49-4907-b15c-bb82cf3ee1fb>
+  a prov:Agent ;
+  rdfs:label "Preservica Exporter" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/agent/96241858-00bb-4861-8857-4bfabc29d1d2>
+  a prov:Agent ;
+  rdfs:label "Sparql Cleaner" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/agent/a007a007-a007-a007-a007-a007a007a007>
+  a prov:Agent ;
+  rdfs:label "Preservica Closure Updater" ;
 .
 <http://nationalarchives.gov.uk/dri/catalogue/batchStatus#IngestFailed>
   a dri:BatchStatus ;
@@ -372,6 +469,7 @@
 .
 <http://nationalarchives.gov.uk/terms/dri>
   a owl:Ontology ;
+  owl:imports <https://www.w3.org/ns/prov.ttl> ;
   owl:versionIRI <http://nationalarchives.gov.uk/terms/dri/4.0> ;
 .
 dri:Accumulation
@@ -578,6 +676,10 @@ dri:XsltParameter
   a owl:Class ;
   rdfs:label "XsltParameter" ;
 .
+dri:XsltTransform
+  a owl:Class ;
+  rdfs:label "XsltTransform" ;
+.
 dri:accumulation
   a owl:ObjectProperty ;
   rdfs:domain dri:TransferAgreement ;
@@ -654,10 +756,14 @@ dri:descriptionStatus
   rdfs:range xsd:decimal ;
 .
 dri:directory
+  a owl:DatatypeProperty ;
   a owl:ObjectProperty ;
   rdfs:domain dri:Resource ;
+  rdfs:domain dri:xsltTransform ;
+  rdfs:label "Directory" ;
   rdfs:label "directory" ;
   rdfs:range dri:Directory ;
+  rdfs:range xsd:string ;
 .
 dri:documentStatus
   a owl:DatatypeProperty ;
@@ -775,11 +881,23 @@ dri:medium
   rdfs:label "medium" ;
   rdfs:range dri:Medium ;
 .
+dri:ordinal
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:xsltTransform ;
+  rdfs:label "Ordinal" ;
+  rdfs:range xsd:integer ;
+.
 dri:parent
   a owl:ObjectProperty ;
   rdfs:domain dri:Item ;
   rdfs:label "parent" ;
   rdfs:range dri:DeliverableUnit ;
+.
+dri:parentId
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:xsltTransform ;
+  rdfs:label "Parent Id" ;
+  rdfs:range xsd:string ;
 .
 dri:partOfBatch
   a owl:ObjectProperty ;
@@ -794,12 +912,24 @@ dri:partStatus
   rdfs:label "part status" ;
   rdfs:range dri:PartStatus ;
 .
+dri:pieces
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:xsltTransform ;
+  rdfs:label "Pieces" ;
+  rdfs:range xsd:string ;
+.
 dri:recordListMember
   a owl:ObjectProperty ;
   rdfs:domain dri:RecordList ;
   rdfs:label "record list member" ;
   rdfs:range dri:DeliverableUnit ;
   rdfs:range dri:File ;
+.
+dri:recordOpeningDate
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:xsltTransform ;
+  rdfs:label "Record Opening Date" ;
+  rdfs:range xsd:dateTime ;
 .
 dri:schemaName
   a owl:DatatypeProperty ;
@@ -822,6 +952,12 @@ dri:substituteValue
   a owl:DatatypeProperty ;
   rdfs:domain dri:SchemaMapping ;
   rdfs:label "substituteValue" ;
+  rdfs:range xsd:string ;
+.
+dri:template
+  a owl:DatatypeProperty ;
+  rdfs:domain dri:xsltTransform ;
+  rdfs:label "Template" ;
   rdfs:range xsd:string ;
 .
 dri:titleAlternative
@@ -1030,51 +1166,4 @@ owl:sameAs
   rdfs:domain dri:DeliverableUnit ;
   rdfs:label "same as" ;
   rdfs:range dri:DiscoveryItem ;
-.
-
-dri:XsltTransform
-  a owl:Class ;
-  rdfs:label "XsltTransform" ;
-.
-
-dri:template
-  a owl:DatatypeProperty ;
-  rdfs:domain dri:xsltTransform ;
-  rdfs:label "Template" ;
-  rdfs:range xsd:string ;
-.
-
-dri:parentId
-  a owl:DatatypeProperty ;
-  rdfs:domain dri:xsltTransform ;
-  rdfs:label "Parent Id" ;
-  rdfs:range xsd:string ;
-.
-
-dri:pieces
-  a owl:DatatypeProperty ;
-  rdfs:domain dri:xsltTransform ;
-  rdfs:label "Pieces" ;
-  rdfs:range xsd:string ;
-.
-
-dri:directory
-  a owl:DatatypeProperty ;
-  rdfs:domain dri:xsltTransform ;
-  rdfs:label "Directory" ;
-  rdfs:range xsd:string ;
-.
-
-dri:recordOpeningDate
-  a owl:DatatypeProperty ;
-  rdfs:domain dri:xsltTransform ;
-  rdfs:label "Record Opening Date" ;
-  rdfs:range xsd:dateTime ;
-.
-
-dri:ordinal
-  a owl:DatatypeProperty ;
-  rdfs:domain dri:xsltTransform ;
-  rdfs:label "Ordinal" ;
-  rdfs:range xsd:integer ;
 .
