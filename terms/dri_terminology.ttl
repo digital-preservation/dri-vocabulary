@@ -1,0 +1,607 @@
+# baseURI: http://nationalarchives.gov.uk/dri/resources
+
+@prefix central-government: <http://reference.data.gov.uk/def/central-government/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dri: <http://nationalarchives.gov.uk/terms/dri#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix tna: <http://nationalarchives.gov.uk/metadata/tna#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://datagov.nationalarchives.gov.uk/Welsh_Assembly_Government>
+  a central-government:DevolvedGovernment ;
+  rdfs:label "Welsh Assembly Government" ;
+.
+<http://datagov.nationalarchives.gov.uk/resource/Al-Sweady_Inquiry>
+  a central-government:TribunalNDPB ;
+  rdfs:label "Al-Sweady Inquiry" ;
+  owl:sameAs <http://dbpedia.org/resource/Al-Sweady_Inquiry> ;
+.
+<http://datagov.nationalarchives.gov.uk/resource/Insolvency_Service>
+  a central-government:ExecutiveAgency ;
+  rdfs:label "Insolvency Service" ;
+  owl:sameAs <http://dbpedia.org/resource/Insolvency_Service> ;
+.
+<http://datagov.nationalarchives.gov.uk/resource/Leveson_Inquiry>
+  a central-government:TribunalNDPB ;
+  rdfs:label "Leveson Inquiry" ;
+  owl:sameAs <http://dbpedia.org/resource/Leveson_Inquiry> ;
+.
+<http://datagov.nationalarchives.gov.uk/resource/London_Organising_Committee_of_the_Olympic_and_Paralympic_Games>
+  a <http://dbpedia.org/resource/Private_company_limited_by_guarantee> ;
+  rdfs:label "London Organising Committee of the Olympic and Paralympic Games" ;
+  owl:sameAs <http://dbpedia.org/resource/London_Organising_Committee_of_the_Olympic_and_Paralympic_Games> ;
+.
+<http://datagov.nationalarchives.gov.uk/resource/Millenium_Commission>
+  a central-government:NonDepartmentalPublicBody ;
+  rdfs:comment "Millenium Commission" ;
+  owl:sameAs <http://dbpedia.org/resource/Millenium_Commission> ;
+.
+<http://datagov.nationalarchives.gov.uk/resource/Ministry_of_Defence_(United_Kingdom)>
+  a central-government:MinisterialDepartment ;
+  rdfs:label "Ministry of Defence (United Kingdom)" ;
+  owl:sameAs <http://dbpedia.org/resource/Ministry_of_Defence_(United_Kingdom)> ;
+.
+<http://datagov.nationalarchives.gov.uk/resource/War_Office>
+  a central-government:Department ;
+  rdfs:label "War Office" ;
+  owl:sameAs <http://dbpedia.org/resource/War_Office> ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/043dee8b-afca-44c3-affb-6eabcaf4366e>
+  a prov:Activity ;
+  rdfs:label "Closing an open record" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/1772f5ca-87a7-425b-9445-34eaf0083290>
+  a prov:Activity ;
+  rdfs:label "Correction" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/2b5a8e28-f6ea-40ec-ad65-ca91bda8ccf2>
+  a prov:Activity ;
+  rdfs:label "Opening date later after FOI review" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/3fe3c78c-5514-4e82-949e-1b88d6120f90>
+  a prov:Activity ;
+  rdfs:label "Ingest Closure" ;
+  prov:wasAssociatedWith <http://nationalarchives.gov.uk/dri/catalogue/agent/6446ea1e-0585-4628-86e4-d37f2fa8b067> ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/47bbcf0c-384a-4bfe-a92f-1db791758e24>
+  a prov:Activity ;
+  rdfs:label "Opening date earlier after FOI review" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/4954be50-8583-4aa1-b0d0-1a8d80b43329>
+  a prov:Activity ;
+  rdfs:label "Birth+marriage certificate record opening earlier" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/5868b566-b3f7-49e5-976e-42bae9e2bb59>
+  a prov:Activity ;
+  rdfs:label "Legacy: opening date later to match SAR" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/5c7f0f1c-c9d0-4942-95c1-3463f63018a4>
+  a prov:Activity ;
+  rdfs:label "Record opened after review" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/8583dcb1-9465-4f72-86fd-c73bbf1be916>
+  a prov:Activity ;
+  rdfs:label "Legacy: record opened to match SAR" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/858b8791-80ee-453d-b0d5-70be693dd61e>
+  a prov:Activity ;
+  rdfs:label "Sparql cleanup activity" ;
+  prov:wasAssociatedWith <http://nationalarchives.gov.uk/dri/catalogue/agent/96241858-00bb-4861-8857-4bfabc29d1d2> ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/924785a0-6275-4a6e-89ed-f011ae8fdebe>
+  a prov:Activity ;
+  rdfs:label "Closure Update" ;
+  prov:wasAssociatedWith <http://nationalarchives.gov.uk/dri/catalogue/agent/a007a007-a007-a007-a007-a007a007a007> ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/95760c91-0aad-41f5-a54e-ae8b0531ed82>
+  a prov:Activity ;
+  rdfs:label "Death+marriage certificate record opening" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/9db26ba4-2058-4fea-8c8f-0fc527f8bd24>
+  a prov:Activity ;
+  rdfs:label "Opened on export" ;
+  prov:wasAssociatedWith <http://nationalarchives.gov.uk/dri/catalogue/agent/92749479-ef49-4907-b15c-bb82cf3ee1fb> ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/9ff9605a-14ec-4be8-8396-316aded86334>
+  a prov:Activity ;
+  rdfs:label "Birth+marriage certificate record opening" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/a7d669c4-e3a0-4f0e-95aa-dc8cef8ef8cf>
+  a prov:Activity ;
+  rdfs:label "Opening a closed title or description" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/a823ba2d-7eff-455d-951f-e48b28e966a6>
+  a prov:Activity ;
+  rdfs:label "Closing an open title or description" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/b674f54c-f0fb-11ea-adc1-0242ac120002>
+  a prov:Activity ;
+  rdfs:label "Birth+marriage certificate record opening later" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/bb2194d1-3c4e-4ea1-8a53-2d99b16311a9>
+  a prov:Activity ;
+  rdfs:label "FOI code amended after review" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/activity/f0c76bc6-1f56-44d1-bb02-d2cea8a1994e>
+  a prov:Activity ;
+  rdfs:label "Legacy: opening date earlier to match SAR" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/agent/6446ea1e-0585-4628-86e4-d37f2fa8b067>
+  a prov:Agent ;
+  rdfs:label "Preservica Ingester" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/agent/92749479-ef49-4907-b15c-bb82cf3ee1fb>
+  a prov:Agent ;
+  rdfs:label "Preservica Exporter" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/agent/96241858-00bb-4861-8857-4bfabc29d1d2>
+  a prov:Agent ;
+  rdfs:label "Sparql Cleaner" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/agent/a007a007-a007-a007-a007-a007a007a007>
+  a prov:Agent ;
+  rdfs:label "Preservica Closure Updater" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/batchStatus#IngestFailed>
+  a dri:BatchStatus ;
+  rdfs:label "Ingest Failed" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/batchStatus#Ingested>
+  a dri:BatchStatus ;
+  rdfs:label "Ingested" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/batchStatus#Ingesting>
+  a dri:BatchStatus ;
+  rdfs:label "Ingesting" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/batchStatus#LoadedPreIngest>
+  a dri:BatchStatus ;
+  rdfs:label "Loaded Pre-ingest" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/batchStatus#PreIngestFailed>
+  a dri:BatchStatus ;
+  rdfs:label "Pre-ingest Failed" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/batchStatus#PreIngested>
+  a dri:BatchStatus ;
+  rdfs:label "Pre-ingested" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/batchStatus#PreIngestedCopied>
+  a dri:BatchStatus ;
+  rdfs:label "Pre-ingested copied" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/batchStatus#PreIngestedCopying>
+  a dri:BatchStatus ;
+  rdfs:label "Pre-ingested Copying" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/batchStatus#PreIngesting>
+  a dri:BatchStatus ;
+  rdfs:label "Pre-ingesting" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#A>
+  a dri:ClosureType ;
+  rdfs:label "open on transfer" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#C>
+  a dri:ClosureType ;
+  rdfs:label "closed, for review in" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#D>
+  a dri:ClosureType ;
+  rdfs:label "retained until" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#F>
+  a dri:ClosureType ;
+  rdfs:label "closed for" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#I>
+  a dri:ClosureType ;
+  rdfs:label "open immediately" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#N>
+  a dri:ClosureType ;
+  rdfs:label "normal closure" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#R>
+  a dri:ClosureType ;
+  rdfs:label "retained by department" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#S>
+  a dri:ClosureType ;
+  rdfs:label "retained by department under section 3.4" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#T>
+  a dri:ClosureType ;
+  rdfs:label "temporarily retained by department" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#U>
+  a dri:ClosureType ;
+  rdfs:label "closed until" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#V>
+  a dri:ClosureType ;
+  rdfs:label "closed whilst access is reviewed" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#W>
+  a dri:ClosureType ;
+  rdfs:label "reclosed in" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/closure#X>
+  a dri:ClosureType ;
+  rdfs:label "unknown/unspecified" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/exportStatus#Completed>
+  a dri:ExportStatus ;
+  rdfs:label "Completed" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/exportStatus#Open>
+  a dri:ExportStatus ;
+  rdfs:label "Open" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/exportStatus#Processing>
+  a dri:ExportStatus ;
+  rdfs:label "Processing" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/exportStatus#ReadyToProcess>
+  a dri:ExportStatus ;
+  rdfs:label "Ready to process" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/exportStatus#Secure>
+  a dri:ExportStatus ;
+  rdfs:label "Secure" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/exportStatus#StartProcess>
+  a dri:ExportStatus ;
+  rdfs:label "Start process" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/medium#CD>
+  a dri:PhysicalMedia ;
+  rdfs:label "CD" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/medium#DVD>
+  a dri:PhysicalMedia ;
+  rdfs:label "DVD" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/medium#FileSystemFolder>
+  a dri:ElectronicAssembly ;
+  rdfs:label "File system folder" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/medium#FloppyDisk>
+  a dri:PhysicalMedia ;
+  rdfs:label "Floppy disk" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/medium#HardDrive>
+  a dri:PhysicalMedia ;
+  rdfs:label "Hard drive" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/medium#PGPZFile>
+  a dri:ElectronicAssembly ;
+  rdfs:label "PGPZ file" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/medium#PortableNVRAM>
+  a dri:ElectronicAssembly ;
+  rdfs:label "Portable NVRAM" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/medium#TARFIle>
+  a dri:ElectronicAssembly ;
+  rdfs:label "TAR file" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/medium#Tape>
+  a dri:PhysicalMedia ;
+  rdfs:label "Tape" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/medium#TrueCryptVolumeFile>
+  a dri:ElectronicAssembly ;
+  rdfs:label "TrueCrypt volume file" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#Identified>
+  a dri:PartStatus ;
+  rdfs:label "Identified" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#IngestFailed>
+  a dri:PartStatus ;
+  rdfs:label "Ingest Failed" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#Ingested>
+  a dri:PartStatus ;
+  rdfs:label "Ingested" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#Ingesting>
+  a dri:PartStatus ;
+  rdfs:label "Ingesting" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#LoadedDarkArchive>
+  a dri:PartStatus ;
+  rdfs:label "Loaded Dark Archive" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#LoadedHolding>
+  a dri:PartStatus ;
+  rdfs:label "Loaded Holding" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#LoadedHoldingPlusSandbox>
+  a dri:PartStatus ;
+  rdfs:label "Loaded Holding + Sandbox" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#LoadedPreIngest>
+  a dri:PartStatus ;
+  rdfs:label "Loaded Pre-Ingest" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#PreIngestFailed>
+  a dri:PartStatus ;
+  rdfs:label "Pre-ingest failed" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#PreIngested>
+  a dri:PartStatus ;
+  rdfs:label "Pre-ingested" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#PreIngestedCopied>
+  a dri:PartStatus ;
+  rdfs:label "Pre-ingested Copied" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#PreIngestedCopying>
+  a dri:PartStatus ;
+  rdfs:label "Pre-ingested Copying" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/partStatus#PreIngesting>
+  a dri:PartStatus ;
+  rdfs:label "Pre-ingesting" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/retentionjustification#1>
+  a dri:RetentionJustificationType ;
+  rdfs:comment "Records or series of records which have not been selected for transfer to The National Archives or a place of deposit, but which the department has retained after they are defined as historical records because they are required for its own administrative purposes" ;
+  rdfs:label "1" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/retentionjustification#2>
+  a dri:RetentionJustificationType ;
+  rdfs:comment "Records or series of records that have been selected for transfer to The National Archives or place of deposit but are still required for administrative purposes" ;
+  rdfs:label "2" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/retentionjustification#4a>
+  a dri:RetentionJustificationType ;
+  rdfs:comment "Records or series of records not yet appraised which form part of a backlog awaiting appraisal" ;
+  rdfs:label "4a" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/retentionjustification#4b>
+  a dri:RetentionJustificationType ;
+  rdfs:comment "Records or series of records selected for transfer which form part of a backlog awaiting sensitivity review, or preparation for transfer to The National Archives or place of deposit" ;
+  rdfs:label "4b" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/retentionjustification#6>
+  a dri:RetentionJustificationType ;
+  rdfs:comment "Records retained in departments on security or other specified grounds" ;
+  rdfs:label "6" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/retentionjustification#8>
+  a dri:RetentionJustificationType ;
+  rdfs:comment "Records or series of records where no decision has yet been taken with regard to selection or transfer to The National Archives or a place of deposit, but which the department requires for administrative purposes, for example legal proceedings" ;
+  rdfs:label "8" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferAssetStatus#DiscoveryFailed>
+  a dri:TransferAssetStatus ;
+  rdfs:label "Discovery failed" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferAssetStatus#DiscoveryProcessed>
+  a dri:TransferAssetStatus ;
+  rdfs:label "Discovery processed" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferAssetStatus#ReceivedError>
+  a dri:TransferAssetStatus ;
+  rdfs:label "Received error" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferAssetStatus#SendError>
+  a dri:TransferAssetStatus ;
+  rdfs:label "Send error" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferAssetStatus#Sending>
+  a dri:TransferAssetStatus ;
+  rdfs:label "Sending" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferAssetStatus#Sent>
+  a dri:TransferAssetStatus ;
+  rdfs:label "Sent" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferStatus#Completed>
+  a dri:TransferStatus ;
+  rdfs:label "Completed" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferStatus#Failed>
+  a dri:TransferStatus ;
+  rdfs:label "Failed" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferStatus#Starting>
+  a dri:TransferStatus ;
+  rdfs:label "Starting" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferStatus#Transferring>
+  a dri:TransferStatus ;
+  rdfs:label "Transferring" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferStatus#Transforming>
+  a dri:TransferStatus ;
+  rdfs:label "Transforming" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferStatus#Validating>
+  a dri:TransferStatus ;
+  rdfs:label "Validating" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/transferStatus#ValidatingRules>
+  a dri:TransferStatus ;
+  rdfs:label "Validating rules" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/unitStatus#Identified>
+  a dri:UnitStatus ;
+  rdfs:label "Identified" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/unitStatus#IngestFailed>
+  a dri:UnitStatus ;
+  rdfs:label "Ingest Failed" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/unitStatus#Ingested>
+  a dri:UnitStatus ;
+  rdfs:label "Ingested" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/unitStatus#Ingesting>
+  a dri:UnitStatus ;
+  rdfs:label "Ingesting" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/unitStatus#Loaded>
+  a dri:UnitStatus ;
+  rdfs:label "Loaded" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/unitStatus#LoadedDarkArchive>
+  a dri:UnitStatus ;
+  rdfs:comment "Loaded directly into the dark archive without DRI" ;
+  rdfs:label "Loaded Dark Archive" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/unitStatus#PreIngestFailed>
+  a dri:UnitStatus ;
+  rdfs:label "Pre-ingest failed" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/unitStatus#PreIngested>
+  a dri:UnitStatus ;
+  rdfs:label "Pre-ingested" ;
+.
+<http://nationalarchives.gov.uk/dri/catalogue/unitStatus#PreIngesting>
+  a dri:UnitStatus ;
+  rdfs:label "Pre-ingesting" ;
+.
+<http://nationalarchives.gov.uk/dri/resources>
+  a owl:Ontology ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/23>
+  a dri:ExemptionCode ;
+  rdfs:label "23" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/24>
+  a dri:ExemptionCode ;
+  rdfs:label "24" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/26>
+  a dri:ExemptionCode ;
+  rdfs:label "26" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/27/1>
+  a dri:ExemptionCode ;
+  rdfs:label "27(1)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/27/2>
+  a dri:ExemptionCode ;
+  rdfs:label "27(2)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/28>
+  a dri:ExemptionCode ;
+  rdfs:label "28" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/29>
+  a dri:ExemptionCode ;
+  rdfs:label "29" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/30/1>
+  a dri:ExemptionCode ;
+  rdfs:label "30(1)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/30/2>
+  a dri:ExemptionCode ;
+  rdfs:label "30(2)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/31>
+  a dri:ExemptionCode ;
+  rdfs:label "31" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/32>
+  a dri:ExemptionCode ;
+  rdfs:label "32" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/33>
+  a dri:ExemptionCode ;
+  rdfs:label "33" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/34>
+  a dri:ExemptionCode ;
+  rdfs:label "34" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/35/1/a>
+  a dri:ExemptionCode ;
+  rdfs:label "35(1)(a)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/35/1/b>
+  a dri:ExemptionCode ;
+  rdfs:label "35(1)(b)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/35/1/c>
+  a dri:ExemptionCode ;
+  rdfs:label "35(1)(c)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/35/1/d>
+  a dri:ExemptionCode ;
+  rdfs:label "35(1)(d)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/36>
+  a dri:ExemptionCode ;
+  rdfs:label "36" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/37/1/a>
+  a dri:ExemptionCode ;
+  rdfs:label "37(1)(a)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/37/1/a/old>
+  a dri:ExemptionCode ;
+  rdfs:label "37(1)(a)old" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/37/1/aa>
+  a dri:ExemptionCode ;
+  rdfs:label "37(1)(aa)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/37/1/ac>
+  a dri:ExemptionCode ;
+  rdfs:label "37(1)(ac)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/37/1/ad>
+  a dri:ExemptionCode ;
+  rdfs:label "37(1)(ad)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/37/1/b>
+  a dri:ExemptionCode ;
+  rdfs:label "37(1)(b)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/38>
+  a dri:ExemptionCode ;
+  rdfs:label "38" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/39>
+  a dri:ExemptionCode ;
+  rdfs:label "39" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/40/2>
+  a dri:ExemptionCode ;
+  rdfs:label "40(2)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/41>
+  a dri:ExemptionCode ;
+  rdfs:label "41" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/42>
+  a dri:ExemptionCode ;
+  rdfs:label "42" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/43>
+  a dri:ExemptionCode ;
+  rdfs:label "43" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/43/1>
+  a dri:ExemptionCode ;
+  rdfs:label "43(1)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/43/2>
+  a dri:ExemptionCode ;
+  rdfs:label "43(2)" ;
+.
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/44>
+  a dri:ExemptionCode ;
+  rdfs:label "44" ;
+.
