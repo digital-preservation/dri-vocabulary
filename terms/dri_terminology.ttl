@@ -573,6 +573,10 @@
   a dri:ExemptionCode ;
   rdfs:label "38" ;
 .
+<http://www.legislation.gov.uk/id/ukpga/2000/36/section/38/1/b>
+  a dri:ExemptionCode ;
+  rdfs:label "38(1)(b)" ;
+.
 <http://www.legislation.gov.uk/id/ukpga/2000/36/section/39>
   a dri:ExemptionCode ;
   rdfs:label "39" ;
